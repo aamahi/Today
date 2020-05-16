@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -50,4 +52,12 @@ class LoginController extends Controller
     {
         return Auth::guard('admin');
     }
+
+//    public function logout()
+//    {
+////        Auth::guard('admin')->logout();
+//        Auth::logout();
+//        return redirect()->route('admin.logout');
+//    }
+
 }
