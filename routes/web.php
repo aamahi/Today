@@ -22,6 +22,6 @@ Route::post('/admin/login', 'Admin\LoginController@login');
 
 //============== FRONTEND =====================================
 
-Route::get('/', 'Frontend\Index@home');
+Route::get('/', 'Frontend\Index@home')->name('frontend_home');
 
 //============== ADMIN =====================================

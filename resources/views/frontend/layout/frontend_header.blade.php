@@ -6,25 +6,37 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
                         <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                         <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
-                        <li><a href="#"><i class="icon fa fa-lock"></i>Login</a></li>
-                    </ul>
+                            <!-- Authentication Links -->
+                        @guest
+                            <li><a href="{{url('/login')}}"><i class="icon fa fa-lock"></i>Login / Register</a></li>
+                        @else
+                            <li><a href=""><i class="icon fa fa-user"></i>{{Auth::User()->name}}</a></li>
+                            <li><a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                                    <i class="icon fa fa-sign-out"></i> Logout</a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                 @csrf
+                            </form>
+                            @endguest
+                        </ul>
+
                 </div><!-- /.cnt-account -->
 
                 <div class="cnt-block">
                     <ul class="list-unstyled list-inline">
-                        <li class="dropdown dropdown-small">
-                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">INR</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li>
-
+                            <li class="dropdown dropdown-small">
+                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">USD</a></li>
+                                    <li><a href="#">INR</a></li>
+                                    <li><a href="#">GBP</a></li>
+                                </ul>
+                            </li>
                         <li class="dropdown dropdown-small">
                             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
