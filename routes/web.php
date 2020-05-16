@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin/home', 'Admin@index');
 Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Admin\LoginController@login');
 //logout
@@ -28,4 +27,4 @@ Route::post('/admin/login', 'Admin\LoginController@login');
 Route::get('/', 'Frontend\Index@home')->name('frontend_home');
 
 //============== ADMIN ============================================
-
+Route::get('/admin/home', 'Admin\Index@home');
