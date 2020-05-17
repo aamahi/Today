@@ -27,4 +27,4 @@ Route::post('/admin/login', 'Admin\LoginController@login');
 Route::get('/', 'Frontend\Index@home')->name('frontend_home');
 
 //============== ADMIN ============================================
-Route::get('/admin/home', 'Admin\Index@home');
+Route::get('/admin/home', 'Admin\Index@home')->name('admin.home');

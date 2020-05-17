@@ -41,7 +41,7 @@ class LoginController extends Controller
         $this->middleware('guest:admin')->except('logout');
     }
     public function showLoginForm(){
-        return view('admin.login');
+        return view('admin.content.login');
     }
     /**
      * Get the guard to be used during authentication.
