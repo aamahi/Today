@@ -16,11 +16,14 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
-Route::post('/admin/login', 'Admin\LoginController@login');
-//logout
-Route::get('/admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
-Route::get('/admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+
+Route::prefix('admin')->group(function () {
+    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Admin\LoginController@login');
+    //logout
+    Route::get('logout', 'Admin\LoginController@logout')->name('admin.logout');
+
+});
 
 
 //============== FRONTEND =====================================
@@ -28,4 +31,8 @@ Route::get('/admin/logout', 'Admin\LoginController@logout')->name('admin.logout'
 Route::get('/', 'Frontend\Index@home')->name('frontend_home');
 
 //============== ADMIN ============================================
-Route::get('/admin/home', 'Admin\Index@home')->name('admin.home');
+Route::prefix('admin')->group(function () {
+    Route::get('/home', 'Admin\Index@home')->name('admin.home');
+    Route::get('/brand', 'Admin\Brand@index')->name('admin.brand');
+    Route::post('/brand', 'Admin\Brand@add_brand');
+});
