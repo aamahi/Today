@@ -19,7 +19,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Admin\LoginController@login');
 //logout
-//Route::get('/admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+Route::get('/admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+Route::get('/admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
 
 
 //============== FRONTEND =====================================
