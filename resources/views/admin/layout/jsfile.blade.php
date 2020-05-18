@@ -21,6 +21,31 @@
 <script src="{{asset('/admin/js/sparkline-chart.js')}}"></script>
 <script src="{{asset('/admin/js/easy-pie-chart.js')}}"></script>
 <script src="{{asset('/admin/js/count.js')}}"></script>
+<!--Toaster-->
+<script src="{{asset('admin/assets/toastr-master/toastr.js')}}"></script>
+<script>
+        @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+    @endif
+</script>
+
 
 <script>
 

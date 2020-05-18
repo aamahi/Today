@@ -19,6 +19,8 @@
 
     <!--right slidebar-->
     <link href="{{asset('admin/css/slidebars.css')}}" rel="stylesheet">
+    <!--toastr-->
+    <link href="{{asset('admin/assets/toastr-master/toastr.css')}}" rel="stylesheet" type="text/css" />
 
     <!-- Custom styles for this template -->
 
