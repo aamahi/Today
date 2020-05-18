@@ -9,11 +9,12 @@ use Intervention\Image\Facades\Image;
 class Brand extends Controller
 {
     public function index(){
-        return view('admin.content.brand');
+        $brands = \App\Model\Brand::select('id','brand_name','brand_logo')->get();
+        return view('admin.content.brand',compact('brands'));
     }
     public function add_brand(Request $request){
         $validation_rule =[
-            'brand_name'=>'required',
+            'brand_name'=>'required|unique:brands,brand_name',
             'brand_logo'=>'required|image',
         ];
         $this->validate($request, $validation_rule);
@@ -44,8 +45,6 @@ class Brand extends Controller
             );
             return redirect()->back()->with($notification);
         }
-
-
     }
 }
 
