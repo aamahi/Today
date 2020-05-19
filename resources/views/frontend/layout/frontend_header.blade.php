@@ -183,8 +183,9 @@
                                     <a href="home.blade.php" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a>
 
                                 </li>
+                                @foreach($head_categories as $head_category)
                                 <li class="dropdown yamm mega-menu">
-                                    <a href="home.blade.php" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Clothing</a>
+                                    <a href="" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">{{$head_category->head_category_name}}</a>
                                     <ul class="dropdown-menu container">
                                         <li>
                                             <div class="yamm-content ">
@@ -249,13 +250,7 @@
 
 
                                                     <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image">
-                                                        <img class="img-responsive" src="{{asset('frontend/assets/images/banners/top-menu-banner.jpg')}}" alt="">
-
-
-
-
-
-
+                                                        <img class="img-responsive" src="{{asset('upload/category/'.$head_category->category_banner)}}" alt="">
                                                     </div><!-- /.yamm-content -->
                                                 </div>
                                             </div>
@@ -264,7 +259,7 @@
                                     </ul>
 
                                 </li>
-
+                                @endforeach
                                 <li class="dropdown mega-menu">
                                     <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics
                                         <span class="menu-label hot-menu hidden-xs">hot</span>
@@ -343,27 +338,6 @@
                                                 </div><!-- /.row -->
                                             </div><!-- /.yamm-content -->					</li>
                                     </ul>
-                                </li>
-                                <li class="dropdown hidden-sm">
-
-                                    <a href="category.html">Health & Beauty
-                                        <span class="menu-label new-menu hidden-xs">new</span>
-                                    </a>
-                                </li>
-
-                                <li class="dropdown hidden-sm">
-                                    <a href="category.html">Watches</a>
-                                </li>
-
-                                <li class="dropdown">
-                                    <a href="contact.html">Jewellery</a>
-                                </li>
-
-                                <li class="dropdown">
-                                    <a href="contact.html">Shoes</a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="contact.html">Kids & Girls</a>
                                 </li>
 
                                 <li class="dropdown">
