@@ -9,13 +9,13 @@
                 </a>
             </li>
             <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-shopping-bag"></i>
+                <a  class="@yield('category')" href="javascript:;" >
+                    <i class="fa fa-tags"></i>
                     <span>Category</span>
                 </a>
                 <ul class="sub">
                     <li><a  href="{{route('admin.head_category')}}">Head Category</a></li>
-                    <li><a  href="email_template.html" target="_blank">Sub Category</a></li>
+                    <li><a  href="{{route('admin.sub_category')}}">Sub Category</a></li>
                     <li><a  href="email_template.html" target="_blank">Category</a></li>
                 </ul>
             </li>

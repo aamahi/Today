@@ -38,8 +38,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/brand', 'Admin\Brand@index')->name('admin.brand');
     Route::post('/brand', 'Admin\Brand@add_brand');
 
-    //Category
+    // Head Category
     Route::get('/head/category', 'Category\HeadCategory@home')->name('admin.head_category');
     Route::post('/head/category', 'Category\HeadCategory@add_head_category');
+    // Sub category
+    Route::get('/sub/category', 'Category\SubCategory@home')->name('admin.sub_category');
+    Route::post('/sub/category', 'Category\SubCategory@add_sub_category');
 
 });

@@ -76,30 +76,22 @@
                                         <li class="yamm-content">
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <h2 class="title">Boys</h2>
                                                     <ul>
-                                                        <li><a href="#">Gaming</a></li>
                                                         <li><a href="#">Laptop Skins</a></li>
                                                         <li><a href="#">Apple</a></li>
-                                                        <li><a href="#">Dell</a></li>
-                                                        <li><a href="#">Lenovo</a></li>
-                                                        <li><a href="#">Microsoft</a></li>
-                                                        <li><a href="#">Asus</a></li>
-                                                        <li><a href="#">Adapters</a></li>
                                                         <li><a href="#">Batteries</a></li>
                                                         <li><a href="#">Cooling Pads</a></li>
                                                     </ul>
                                                 </div>
 
                                                 <div class="col-xs-12 col-sm-12 col-lg-4">
+                                                    <h2 class="title">Boys</h2>
                                                     <ul>
                                                         <li><a href="#">Routers &amp; Modems</a></li>
                                                         <li><a href="#">CPUs, Processors</a></li>
                                                         <li><a href="#">PC Gaming Store</a></li>
-                                                        <li><a href="#">Graphics Cards</a></li>
-                                                        <li><a href="#">Components</a></li>
-                                                        <li><a href="#">Webcam</a></li>
-                                                        <li><a href="#">Memory (RAM)</a></li>
-                                                        <li><a href="#">Motherboards</a></li>
+                                                        <li><a href="#">Graphics Cards</a></li>i>
                                                         <li><a href="#">Keyboards</a></li>
                                                         <li><a href="#">Headphones</a></li>
                                                     </ul>

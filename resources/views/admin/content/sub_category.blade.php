@@ -9,24 +9,21 @@
                 <div class="col-lg-7">
                     <section class="card">
                         <header class="card-header">
-                            Head Category
+                           Sub  Category
                         </header>
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                             <tr>
-                                <th><i class="fa fa-picture-o"></i> Banner </th>
-                                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Name </th>
+                                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Sub Category Name </th>
+                                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Head Catgory Name </th>
                                 <th><i class=" fa fa-edit"></i> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-{{--                            {{print_r($head_categorys)}}--}}
-                            @foreach($head_categorys as $head_category)
+                            @foreach($sub_categories as $sub_category)
                                 <tr>
-                                    <td>
-                                       <img width="75" src="{{asset('upload/category/'.$head_category->category_banner)}}">
-                                    </td>
-                                    <td class="hidden-phone">{{$head_category->head_category_name}}</td>
+                                    <td class="hidden-phone">{{$sub_category->sub_category_name}}</td>
+                                    <td class="hidden-phone">{{$sub_category->head_category_id}}</td>
                                     <td>
                                         <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </button>
                                         <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </button>
@@ -53,20 +50,22 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <form enctype="multipart/form-data" method="post" action="{{route('admin.head_category')}}">
+                            <form method="post" action="{{route('admin.sub_category')}}">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="head_categoy_name">Category Name</label>
-                                    <input type="text" class="form-control" id="head_categoy_name" name="head_category_name" value="{{old('head_categoy_name')}}" placeholder="Category Name">
+                                    <label for="head_category_id">Head Category</label>
+                                    <select name="head_category_id" class="form-control">
+                                        <option disabled selected>Select a Head Category</option>
+                                        @foreach($head_categories as $sub_category)
+                                                <option value="{{$sub_category->id}}">{{$sub_category->head_category_name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category_icon">Category Icon</label>
-                                    <input type="text" class="form-control" id="category_icon" name="category_icon" value="{{old('category_icon')}}" placeholder="Icon Name (fa-sports)">
+                                    <label for="sub_category_name">Sub Category Name</label>
+                                    <input type="text" class="form-control" id="sub_category_name" name="sub_category_name" value="{{old('sub_category_name')}}" placeholder="Sub Category Name">
                                 </div>
-                                <div class="form-group">
-                                    <label for="category_banner">Category Banner</label>
-                                    <input type="file" class="form-control" id="category_banner" name="category_banner">
-                                </div>
+
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
 
