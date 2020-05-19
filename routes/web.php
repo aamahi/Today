@@ -33,6 +33,13 @@ Route::get('/', 'Frontend\Index@home')->name('frontend_home');
 //============== ADMIN ============================================
 Route::prefix('admin')->group(function () {
     Route::get('/home', 'Admin\Index@home')->name('admin.home');
+
+    //Brand
     Route::get('/brand', 'Admin\Brand@index')->name('admin.brand');
     Route::post('/brand', 'Admin\Brand@add_brand');
+
+    //Category
+    Route::get('/head/category', 'Category\HeadCategory@home')->name('admin.head_category');
+    Route::post('/head/category', 'Category\HeadCategory@add_head_category');
+
 });

@@ -8,6 +8,17 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-shopping-bag"></i>
+                    <span>Category</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="{{route('admin.head_category')}}">Head Category</a></li>
+                    <li><a  href="email_template.html" target="_blank">Sub Category</a></li>
+                    <li><a  href="email_template.html" target="_blank">Category</a></li>
+                </ul>
+            </li>
             <li>
                 <a class="@yield('brand')" href="{{route('admin.brand')}}">
                     <i class="fa fa-bars"></i>
