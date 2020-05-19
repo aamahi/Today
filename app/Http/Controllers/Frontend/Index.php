@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class Index extends Controller
 {
     public function home(){
-        $head_categories = HeadCategory::all();
+        $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
         $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
         return view("frontend.content.home",compact('brands','head_categories'));
     }

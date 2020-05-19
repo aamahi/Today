@@ -75,27 +75,16 @@
                                     <ul class="dropdown-menu mega-menu">
                                         <li class="yamm-content">
                                             <div class="row">
+                                                @foreach($head_category->sub_categories as $sub_category)
                                                 <div class="col-xs-12 col-sm-12 col-lg-4">
-                                                    <h2 class="title">Boys</h2>
-                                                    <ul>
-                                                        <li><a href="#">Laptop Skins</a></li>
-                                                        <li><a href="#">Apple</a></li>
-                                                        <li><a href="#">Batteries</a></li>
-                                                        <li><a href="#">Cooling Pads</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="col-xs-12 col-sm-12 col-lg-4">
-                                                    <h2 class="title">Boys</h2>
+                                                    <h2 class="title">{{$sub_category->sub_category_name}}</h2>
                                                     <ul>
                                                         <li><a href="#">Routers &amp; Modems</a></li>
                                                         <li><a href="#">CPUs, Processors</a></li>
                                                         <li><a href="#">PC Gaming Store</a></li>
-                                                        <li><a href="#">Graphics Cards</a></li>i>
-                                                        <li><a href="#">Keyboards</a></li>
-                                                        <li><a href="#">Headphones</a></li>
                                                     </ul>
                                                 </div>
+                                                @endforeach
 
                                                 <div class="dropdown-banner-holder">
                                                     <a href="#"><img alt="" src="{{asset('upload/category/'.$head_category->category_banner)}}" /></a>
