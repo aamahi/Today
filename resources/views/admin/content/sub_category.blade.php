@@ -23,7 +23,7 @@
                             @foreach($sub_categories as $sub_category)
                                 <tr>
                                     <td class="hidden-phone">{{$sub_category->sub_category_name}}</td>
-                                    <td class="hidden-phone">{{$sub_category->head_category_id}}</td>
+                                    <td class="hidden-phone">{{($sub_category->head_category)->head_category_name}}</td>
                                     <td>
                                         <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </button>
                                         <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </button>
