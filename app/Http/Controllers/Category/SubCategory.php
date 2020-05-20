@@ -15,7 +15,7 @@ class SubCategory extends Controller
     public function add_sub_category(Request $request){
         $this->validate($request,[
             'head_category_id'=>'required',
-            'sub_category_name'=>'required|unique:sub_categories,sub_category_name',
+            'sub_category_name'=>'required',
         ]);
         $data =[];
         $data['head_category_id']=$request->head_category_id;

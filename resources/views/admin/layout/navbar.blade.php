@@ -16,14 +16,18 @@
                 <ul class="sub">
                     <li><a  href="{{route('admin.head_category')}}">Head Category</a></li>
                     <li><a  href="{{route('admin.sub_category')}}">Sub Category</a></li>
-                    <li><a  href="email_template.html" target="_blank">Category</a></li>
+                    <li><a  href="{{route('admin.category')}}" >Category</a></li>
                 </ul>
             </li>
-            <li>
-                <a class="@yield('brand')" href="{{route('admin.brand')}}">
+            <li class="sub-menu">
+                <a  class="@yield('brand')" href="javascript:;" >
                     <i class="fa fa-bars"></i>
                     <span>Brand</span>
                 </a>
+                <ul class="sub">
+                    <li><a  href="{{route('admin.brand')}}">Brand</a></li>
+                    <li><a  href="{{route('deleted.brand')}}">Deleted Brand</a></li>
+                </ul>
             </li>
 
             <li class="sub-menu">

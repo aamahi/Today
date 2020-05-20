@@ -37,6 +37,10 @@ Route::prefix('admin')->group(function () {
     //Brand
     Route::get('/brand', 'Admin\Brand@index')->name('admin.brand');
     Route::post('/brand', 'Admin\Brand@add_brand');
+    Route::get('brand/soft_delete/{id}','Admin\Brand@soft_delete')->name('brand.soft_delete');
+    Route::get('brand/delete/brand','Admin\Brand@deleted_brand')->name('deleted.brand');
+    Route::get('brand/delete_brand/{id}','Admin\Brand@brand_delete')->name('brand.delete');
+    Route::get('brand/restore/brand/{id}','Admin\Brand@restore_brand')->name('brand.restore');
 
     // Head Category
     Route::get('/head/category', 'Category\HeadCategory@home')->name('admin.head_category');
@@ -44,5 +48,10 @@ Route::prefix('admin')->group(function () {
     // Sub category
     Route::get('/sub/category', 'Category\SubCategory@home')->name('admin.sub_category');
     Route::post('/sub/category', 'Category\SubCategory@add_sub_category');
+    // category
+    Route::get('/category', 'Category\Category@home')->name('admin.category');
+    Route::get('/get_sub_category', 'Category\Category@get_sub_category');
+//    Route::post('/category', 'Category\Category@add_category');
+//    Route::g
 
 });

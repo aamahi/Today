@@ -46,5 +46,36 @@ class Brand extends Controller
             return redirect()->back()->with($notification);
         }
     }
+
+    public function soft_delete($id){
+        \App\Model\Brand::find($id)->delete();
+        $notification = array(
+            'message' => "Brand Deleted Temporary",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function deleted_brand(){
+        $deleted_brand = \App\Model\Brand::onlyTrashed()->get();
+        return view('admin.content.deleted_brand',compact('deleted_brand'));
+    }
+    public function brand_delete($id){
+        $deleted_brand = \App\Model\Brand::onlyTrashed()->find($id);
+        unlink('upload/brand/'.$deleted_brand->brand_logo);
+        $deleted_brand->forceDelete();
+        $notification = array(
+            'message' => "Brand Deleted Succcesfully !",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function restore_brand($id){
+        \App\Model\Brand::withTrashed()->find($id)->restore();
+        $notification = array(
+            'message' => "Brand Restored",
+            'alert-type' => 'info'
+        );
+        return redirect()->route('admin.brand')->with($notification);
+    }
 }
 
