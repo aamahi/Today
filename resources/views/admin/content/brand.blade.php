@@ -27,7 +27,7 @@
                                     </td>
                                     <td class="hidden-phone">{{$brand->brand_name}}</td>
                                     <td>
-                                        <a href="{{route('brand.soft_delete',$brand->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a href="{{route('brand.update',$brand->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
                                         <a href="{{route('brand.soft_delete',$brand->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </a>
                                     </td>
                                 </tr>

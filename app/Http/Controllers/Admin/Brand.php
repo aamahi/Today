@@ -77,5 +77,9 @@ class Brand extends Controller
         );
         return redirect()->route('admin.brand')->with($notification);
     }
+    public function edit_brand($id){
+        $brand = \App\Model\Brand::find($id);
+        return view('admin.content.update_brand',compact('brand'));
+    }
 }
 

@@ -41,6 +41,8 @@ Route::prefix('admin')->group(function () {
     Route::get('brand/delete/brand','Admin\Brand@deleted_brand')->name('deleted.brand');
     Route::get('brand/delete_brand/{id}','Admin\Brand@brand_delete')->name('brand.delete');
     Route::get('brand/restore/brand/{id}','Admin\Brand@restore_brand')->name('brand.restore');
+    Route::get('brand/update/brand/{id}','Admin\Brand@edit_brand')->name('brand.update');
+//    Route::get('brand/update/brand/{id}','Admin\Brand@restore_brand')->name('brand.restore');
 
     // Head Category
     Route::get('/head/category', 'Category\HeadCategory@home')->name('admin.head_category');

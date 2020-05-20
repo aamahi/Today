@@ -16,6 +16,7 @@
                             <tr>
                                 <th><i class="fa fa-picture-o"></i> logo </th>
                                 <th class="hidden-phone"><i class="fa fa-question-circle"></i> Name </th>
+                                <th class="hidden-phone"><i class="fa fa-trash-o"></i> Deleted </th>
                                 <th><i class=" fa fa-edit"></i> Action </th>
                             </tr>
                             </thead>
@@ -26,6 +27,7 @@
                                        <img width="75" src="{{asset('upload/brand/'.$brand->brand_logo)}}">
                                     </td>
                                     <td class="hidden-phone">{{$brand->brand_name}}</td>
+                                    <td class="hidden-phone">{{$brand->deleted_at->format('jS F, Y')}}</td>
                                     <td>
                                         <a href="{{route('brand.restore',$brand->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-reply"></i> Restore </a>
                                         <a href="{{route('brand.delete',$brand->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </a>
