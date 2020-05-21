@@ -22,7 +22,7 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <form enctype="multipart/form-data" method="post" action="{{route('admin.brand')}}">
+                            <form enctype="multipart/form-data" method="post" action="{{url('admin/brand/update/brand/'.$brand->id)}}">
                                 @csrf
                                 <div class="form-group">
                                     <label for="brand_name">Brand Name</label>
