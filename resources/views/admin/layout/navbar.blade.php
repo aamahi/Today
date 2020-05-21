@@ -29,6 +29,16 @@
                     <li><a  href="{{route('deleted.brand')}}">Deleted Brand</a></li>
                 </ul>
             </li>
+            <li class="sub-menu">
+                <a  class="@yield('banner')" href="javascript:;" >
+                    <i class="fa fa-picture-o"></i>
+                    <span>Banner</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="{{route('admin.banner')}}">Banner</a></li>
+                    <li><a  href="{{route('deleted.brand')}}">Deleted Brand</a></li>
+                </ul>
+            </li>
 
             <li class="sub-menu">
                 <a href="javascript:;" >
