@@ -27,7 +27,7 @@
                                        <img width="150" src="{{asset('upload/banner/'.$banner->web_banner)}}">
                                     </td>
                                     <td>
-                                        <a href="{{route('brand.update',$banner->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a href="{{route('banner.update',$banner->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
                                         <a href="{{route('brand.soft_delete',$banner->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </a>
                                     </td>
                                 </tr>
