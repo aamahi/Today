@@ -14,24 +14,24 @@
                         <table class="table table-striped table-advance table-hover">
                             <thead>
                             <tr>
-                                <th><i class="fa fa-picture-o"></i> logo </th>
-                                <th class="hidden-phone"><i class="fa fa-question-circle"></i> Name </th>
-                                <th><i class=" fa fa-edit"></i> Action </th>
+                                <th><i class="fa fa-edit"></i> Id </th>
+                                <th><i class="fa fa-picture-o"></i> Banner </th>
+                                <th><i class=" fa  fa-check"></i> Action </th>
                             </tr>
                             </thead>
                             <tbody>
-{{--                            @foreach($brands as $brand)--}}
-{{--                                <tr>--}}
-{{--                                    <td>--}}
-{{--                                       <img width="75" src="{{asset('upload/brand/'.$brand->brand_logo)}}">--}}
-{{--                                    </td>--}}
-{{--                                    <td class="hidden-phone">{{$brand->brand_name}}</td>--}}
-{{--                                    <td>--}}
-{{--                                        <a href="{{route('brand.update',$brand->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>--}}
-{{--                                        <a href="{{route('brand.soft_delete',$brand->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </a>--}}
-{{--                                    </td>--}}
-{{--                                </tr>--}}
-{{--                            @endforeach--}}
+                            @foreach($banners as $banner)
+                                <tr>
+                                    <td class="hidden-phone">{{$banner->id}}</td>
+                                    <td>
+                                       <img width="150" src="{{asset('upload/banner/'.$banner->web_banner)}}">
+                                    </td>
+                                    <td>
+                                        <a href="{{route('brand.update',$banner->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a href="{{route('brand.soft_delete',$banner->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </section>

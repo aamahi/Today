@@ -9,7 +9,8 @@ use Intervention\Image\Facades\Image;
 class Banner extends Controller
 {
     public function index(){
-        return view('admin.content.banner');
+        $banners = \App\Model\Banner::select('id','web_banner')->get();
+        return view('admin.content.banner',compact('banners'));
     }
     public function add_banner(Request $request){
         $this->validate($request,[
