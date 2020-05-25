@@ -7,7 +7,7 @@
                 <a href="#" class="image">
                     <img data-echo="{{asset('upload/brand/'.$brand->brand_logo)}}" src="{{asset('upload/brand/'.$brand->brand_logo)}}" alt="">
                 </a>
-            </div><!--/.item-->
+           </div>
             @endforeach
         </div><!-- /.owl-carousel #logo-slider -->
     </div><!-- /.logo-slider-inner -->

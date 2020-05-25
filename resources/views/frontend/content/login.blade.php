@@ -78,7 +78,7 @@
                         <!-- create a new account -->			</div><!-- /.row -->
                 </div><!-- /.sigin-in-->
                 <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-                        @include('frontend.layout.frontend_brands')
+                   
                 <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
         </div><!-- /.body-content -->
     </div><!-- /#top-banner-and-menu -->
