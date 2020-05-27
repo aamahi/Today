@@ -36,7 +36,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="{{route('admin.banner')}}">Banner</a></li>
-                    <li><a  href="{{route('deleted.brand')}}">Deleted Brand</a></li>
+                    <li><a  href="{{route('deleted.banner')}}">Deleted Banner</a></li>
                 </ul>
             </li>
 

@@ -59,4 +59,36 @@ class Banner extends Controller
         }
     }
 
+    public function banner_soft_delete($id){
+        $banner_soft_delete = \App\Model\Banner::find($id)->delete();
+        $notification = array(
+            'message' => "Web Banner Deleted Temporary",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
+
+    public function deleted_banner(){
+        $deleted_banners = \App\Model\Banner::onlyTrashed()->get();
+        return view('admin.content.deleted_banner',compact('deleted_banners'));
+    }
+    public function restore_banner($id){
+        \App\Model\Banner::withTrashed()->find($id)->restore();
+        $notification = array(
+            'message' => "Banner Restored",
+            'alert-type' => 'info'
+        );
+        return redirect()->route('admin.banner')->with($notification);
+    }
+
+    public function banner_delete($id){
+        $deleted_brand = \App\Model\Banner::onlyTrashed()->find($id);
+        unlink('upload/banner/'.$deleted_brand->web_banner);
+        $deleted_brand->forceDelete();
+        $notification = array(
+            'message' => "Banner Deleted Succcesfully !",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
 }

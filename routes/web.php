@@ -46,10 +46,10 @@ Route::prefix('admin')->group(function () {
     //Banner
     Route::get('/banner', 'Admin\Banner@index')->name('admin.banner');
     Route::post('/banner', 'Admin\Banner@add_banner');
-    Route::get('brand/soft_delete/{id}','Admin\Brand@soft_delete')->name('brand.soft_delete');
-    Route::get('brand/delete/brand','Admin\Brand@deleted_brand')->name('deleted.brand');
-    Route::get('brand/delete_brand/{id}','Admin\Brand@brand_delete')->name('brand.delete');
-    Route::get('brand/restore/brand/{id}','Admin\Brand@restore_brand')->name('brand.restore');
+    Route::get('banner/soft_delete/{id}','Admin\Banner@banner_soft_delete')->name('banner.soft_delete'); //soft delte
+    Route::get('banner/delete/{id}','Admin\Banner@banner_delete')->name('banner.delete');//hard delete
+    Route::get('banner/deleted_banner','Admin\Banner@deleted_banner')->name('deleted.banner'); //show deleted banner
+    Route::get('banner/restore/banner/{id}','Admin\Banner@restore_banner')->name('banner.restore'); //banner restore
     Route::get('banner/update/banner/{id}','Admin\Banner@edit_banner')->name('banner.update');
     Route::post('banner/update/banner/{id}','Admin\Banner@update_banner');
 
