@@ -21,9 +21,9 @@
     <link href="{{asset('admin/css/slidebars.css')}}" rel="stylesheet">
     <!--toastr-->
     <link href="{{asset('admin/assets/toastr-master/toastr.css')}}" rel="stylesheet" type="text/css" />
-
+    <!--datatable-->
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <!-- Custom styles for this template -->
-
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('admin/css/style-responsive.css')}}" rel="stylesheet" />
 

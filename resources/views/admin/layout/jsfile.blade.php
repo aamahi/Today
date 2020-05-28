@@ -24,42 +24,8 @@
 <!--Toaster-->
 <script src="{{asset('admin/assets/toastr-master/toastr.js')}}"></script>
 
-<script>
-    {{--$(document).ready(function () {--}}
-    {{--    $(document).on('change','.head_category',function(){--}}
-    {{--        // console.log("Head Category ");--}}
-    {{--        var head_category_id = $(this).val();--}}
-    {{--        // console.log(head_category_id);--}}
-    {{--        $.ajax({--}}
-    {{--            type:'get',--}}
-    {{--            URL:'{!! URL::to('sub_category') !!}}',--}}
-    {{--            data:{'id':head_category_id},--}}
-    {{--            success:function (data) {--}}
-    {{--                console.log("success");--}}
-    {{--                console.log(data.length);--}}
-    {{--            },error:function () {--}}
-
-    {{--            }--}}
-    {{--        })--}}
-    {{--    });--}}
-
-    {{--});--}}
-
-    $(function () {
-        var loader = $('#loader'),
-            head_category_id = $('select[name="head_category_id"]'),
-            sub_category_id = $('select[name="sub_category_id"]');
-
-        loader.hide();
-        sub_category_id.attr('disabled','disabled');
-        head_category_id.change(function () {
-            var head_id =$(this).val();
-            console.log(head_id);
-        })
-    });
-
-</script>
-
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
         @if(Session::has('message'))
@@ -112,7 +78,11 @@
         });
     });
 </script>
-
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
 <script>
 
     // owl carousel

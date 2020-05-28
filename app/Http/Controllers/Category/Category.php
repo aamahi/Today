@@ -11,8 +11,8 @@ class Category extends Controller
 {
     public function home(){
         $head_categories = DB::table('head_categories')->get();
-
-        return view('admin.content.category',compact('head_categories'));
+        $categories = \App\Model\Category\Category::with('head_category')->with('sub_category')->select('id','head_category_id','sub_category_id','category_name')->get();
+        return view('admin.content.category',compact('head_categories','categories'));
     }
     public function get_sub_category(Request $request){
         return $request->has(head_category_id);
