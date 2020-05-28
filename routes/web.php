@@ -67,5 +67,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/get_sub_category/{id}', 'Category\Category@getStates');
     Route::get('/delete/category/{id}', 'Category\Category@delete_category')->name('delete_category');
 
+    //Cupon
+    Route::get('/cupon','Admin\CuponController@index')->name('admin.cupon');
+    Route::post('/cupon','Admin\CuponController@add_cupon');
 });
 

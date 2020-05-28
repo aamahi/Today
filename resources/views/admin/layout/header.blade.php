@@ -3,7 +3,7 @@
         <i class="fa fa-bars"></i>
     </div>
     <!--logo start-->
-    <a href="index.blade.php" class="logo">Flat<span>lab</span></a>
+    <a href="{{route('admin.home')}}" class="logo">To<span>day</span></a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
         <!--  notification start -->

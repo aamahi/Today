@@ -40,6 +40,13 @@
                 </ul>
             </li>
 
+            <li>
+                <a class="@yield('cupon')" href="{{route('admin.cupon')}}">
+                    <i class="fa fa-gift"></i>
+                    <span>Cupon</span>
+                </a>
+            </li>
+
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-laptop"></i>
