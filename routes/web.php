@@ -61,8 +61,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/sub/category', 'Category\SubCategory@add_sub_category');
     // category
     Route::get('/category', 'Category\Category@home')->name('admin.category');
-    Route::get('/get_sub_category', 'Category\Category@get_sub_category');
-//    Route::post('/category', 'Category\Category@add_category');
-//    Route::g
+    Route::post('/category', 'Category\Category@add_cateogry');
+    Route::get('/get_sub_category/{id}', 'Category\Category@getStates');
 
 });
+

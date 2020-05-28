@@ -37,7 +37,7 @@
                 <div class="col-lg-5">
                     <section class="card">
                         <header class="card-header">
-                            Add Head Category
+                            Add Category
                         </header>
                         <div class="card-body">
                             @if($errors->any())
@@ -53,22 +53,23 @@
                             <form method="post" action="{{route('admin.category')}}">
                                 @csrf
                                 <div class="form-group">
-                                    <label for="head_category_id">Sub Category</label>
-                                    <select name="head_category_id" class="form-control head_category">
-                                        <option disabled selected>Select a Sub Category</option>
-                                        @foreach($head_categories as $head_category)
-                                                <option value="{{$head_category->id}}">{{$head_category->head_category_name}}</option>
+                                    <label for="country">Select Head category:</label>
+                                    <select name="head_category_id" class="form-control" style="width:250px">
+                                        <option value="">--- Head Category ---</option>
+                                        @foreach($head_categories as $head_category)--}}
+                                        <option value="{{$head_category->id}}">{{$head_category->head_category_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="sub_category_id">Sub Category</label>
-                                    <img id="loader" width="20" class="float-right" src="{{asset('admin/load.gif')}}">
-                                    <select name="head_category_id" class="form-control"></select>
+                                    <label for="sub_category_id">Select Sub Category:</label>
+                                    <select name="state" class="form-control"style="width:250px">
+                                        <option>--Sub Category--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="sub_category_name"> Category Name</label>
-                                    <input type="text" class="form-control" id="sub_category_name" name="sub_category_name" value="{{old('sub_category_name')}}" placeholder="Sub Category Name">
+                                    <input type="text" class="form-control" id="sub_category_name" name="category_name" value="{{old('sub_category_name')}}" placeholder="Sub Category Name">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -78,6 +79,6 @@
                     </section>
                 </div>
             </div>
+            </section>
         </section>
-    </section>
-@endsection
+    @endsection

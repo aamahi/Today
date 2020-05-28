@@ -222,7 +222,7 @@
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <img alt="" src="{{asset('admin/img/avatar1_small.jpg')}}">
-                    <span class="username">Jhon Doue</span>
+                    <span class="username">{{\App\Model\Admin::find(1)->name}}</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout dropdown-menu-right">

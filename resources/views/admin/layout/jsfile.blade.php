@@ -83,7 +83,35 @@
     }
     @endif
 </script>
-
+{{--Drop down--}}
+<script type="text/javascript">
+    jQuery(document).ready(function ()
+    {
+        jQuery('select[name="head_category_id"]').on('change',function(){
+            var head_category_id = jQuery(this).val();
+            if(head_category_id)
+            {
+                jQuery.ajax({
+                    url : 'get_sub_category/' +head_category_id,
+                    type : "GET",
+                    dataType : "json",
+                    success:function(data)
+                    {
+                        console.log(data);
+                        jQuery('select[name="state"]').empty();
+                        jQuery.each(data, function(key,value){
+                            $('select[name="state"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }
+            else
+            {
+                $('select[name="state"]').empty();
+            }
+        });
+    });
+</script>
 
 <script>
 

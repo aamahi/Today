@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class SubCategory extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function home(){
         $sub_categories = \App\Model\Category\SubCategory::with('head_category')->select('id','head_category_id','sub_category_name')->get();
         $head_categories = \App\Model\Category\HeadCategory::select('id','head_category_name')->get();

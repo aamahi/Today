@@ -9,6 +9,10 @@ use Intervention\Image\Facades\Image;
 
 class Brand extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index(){
         $brands = \App\Model\Brand::select('id','brand_name','brand_logo')->get();
         return view('admin.content.brand',compact('brands'));
