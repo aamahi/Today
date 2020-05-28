@@ -76,7 +76,7 @@
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown">
 
-                                        <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
+                                        <a class="dropdown-toggle"  data-toggle="dropdown" href="">Categories <b class="caret"></b></a>
 
                                         <ul class="dropdown-menu" role="menu" >
                                             <li class="menu-header">Computer</li>
@@ -194,10 +194,9 @@
                                                         <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
                                                         <h2 class="title">{{$sub_category->sub_category_name}}</h2>
                                                         <ul class="links">
-                                                            <li><a href="#">Dresses</a></li>
-                                                            <li><a href="#">Shoes </a></li>
-                                                            <li><a href="#">Jackets</a></li>
-
+                                                            @foreach(\App\Model\Category\Category::where('sub_category_id',$sub_category->id)->get() as $category)
+                                                                <li><a href="#">{{$category->category_name}}</a></li>
+                                                            @endforeach
                                                         </ul>
                                                     </div><!-- /.col -->
                                                     @endforeach

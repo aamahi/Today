@@ -11,63 +11,6 @@
                         <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
                         <nav class="yamm megamenu-horizontal" role="navigation">
                             <ul class="nav">
-                                <li class="dropdown menu-item">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-shopping-bag" aria-hidden="true"></i>Clothing</a>
-                                    <ul class="dropdown-menu mega-menu">
-                                        <li class="yamm-content">
-                                            <div class="row">
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Shoes </a></li>
-                                                        <li><a href="#">Jackets</a></li>
-                                                        <li><a href="#">Sunglasses</a></li>
-                                                        <li><a href="#">Sport Wear</a></li>
-                                                        <li><a href="#">Blazers</a></li>
-                                                        <li><a href="#">Shirts</a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Handbags</a></li>
-                                                        <li><a href="#">Jwellery</a></li>
-                                                        <li><a href="#">Swimwear </a></li>
-                                                        <li><a href="#">Tops</a></li>
-                                                        <li><a href="#">Flats</a></li>
-                                                        <li><a href="#">Shoes</a></li>
-                                                        <li><a href="#">Winter Wear</a></li>
-                                                        <li><a href="#">Night Suits</a></li>
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Toys &amp; Games</a></li>
-                                                        <li><a href="#">Jeans</a></li>
-                                                        <li><a href="#">Shirts</a></li>
-                                                        <li><a href="#">Shoes</a></li>
-                                                        <li><a href="#">School Bags</a></li>
-                                                        <li><a href="#">Lunch Box</a></li>
-                                                        <li><a href="#">Footwear</a></li>
-                                                        <li><a href="#">Wipes</a></li>
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                                <div class="col-sm-12 col-md-3">
-                                                    <ul class="links list-unstyled">
-                                                        <li><a href="#">Sandals </a></li>
-                                                        <li><a href="#">Shorts</a></li>
-                                                        <li><a href="#">Dresses</a></li>
-                                                        <li><a href="#">Jwellery</a></li>
-                                                        <li><a href="#">Bags</a></li>
-                                                        <li><a href="#">Night Dress</a></li>
-                                                        <li><a href="#">Swim Wear</a></li>
-                                                        <li><a href="#">Toys</a></li>
-
-                                                    </ul>
-                                                </div><!-- /.col -->
-                                            </div><!-- /.row -->
-                                        </li><!-- /.yamm-content -->
-                                    </ul><!-- /.dropdown-menu -->            </li><!-- /.menu-item -->
                                 @foreach($head_categories as $head_category)
                                     <li class="dropdown menu-item">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa {{$head_category->category_icon}}" aria-hidden="true"></i>{{$head_category->head_category_name}}</a>
@@ -79,9 +22,9 @@
                                                 <div class="col-xs-12 col-sm-12 col-lg-4">
                                                     <h2 class="title">{{$sub_category->sub_category_name}}</h2>
                                                     <ul>
-                                                        <li><a href="#">Routers &amp; Modems</a></li>
-                                                        <li><a href="#">CPUs, Processors</a></li>
-                                                        <li><a href="#">PC Gaming Store</a></li>
+                                                        @foreach(\App\Model\Category\Category::where('sub_category_id',$sub_category->id)->get() as $category)
+                                                            <li><a href="#">{{$category->category_name}}</a></li>
+                                                        @endforeach
                                                     </ul>
                                                 </div>
                                                 @endforeach
