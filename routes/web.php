@@ -56,13 +56,16 @@ Route::prefix('admin')->group(function () {
     // Head Category
     Route::get('/head/category', 'Category\HeadCategory@home')->name('admin.head_category');
     Route::post('/head/category', 'Category\HeadCategory@add_head_category');
+    Route::get('/delete/head/category/{id}', 'Category\HeadCategory@delete_head_category')->name('delete_head_category');
     // Sub category
     Route::get('/sub/category', 'Category\SubCategory@home')->name('admin.sub_category');
     Route::post('/sub/category', 'Category\SubCategory@add_sub_category');
+    Route::get('/delete/sub/category/{id}', 'Category\SubCategory@delete_sub_category')->name('delete_sub_category');
     // category
     Route::get('/category', 'Category\Category@home')->name('admin.category');
     Route::post('/category', 'Category\Category@add_cateogry');
     Route::get('/get_sub_category/{id}', 'Category\Category@getStates');
+    Route::get('/delete/category/{id}', 'Category\Category@delete_category')->name('delete_category');
 
 });
 

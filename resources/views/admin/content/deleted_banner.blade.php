@@ -28,7 +28,7 @@
                                     <td class="hidden-phone">{{$banner->deleted_at->format('jS F, Y')}}</td>
                                     <td>
                                         <a href="{{route('banner.restore',$banner->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-reply"></i> Restore </a>
-                                        <a href="{{route('banner.delete',$banner->id)}}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </a>
+                                        <a href="{{route('banner.delete',$banner->id)}}" class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o "></i> Delete </a>
                                     </td>
                                 </tr>
                             @endforeach

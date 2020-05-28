@@ -31,6 +31,13 @@ class SubCategory extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
-
+    }
+    public function delete_sub_category($id){
+        $sub_category = \App\Model\Category\SubCategory::find($id)->delete();
+        $notification = array(
+            'message' => "Sub-Category Deleted",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
     }
 }

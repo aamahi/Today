@@ -8,10 +8,6 @@ use Intervention\Image\Facades\Image;
 
 class HeadCategory extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
     public function home(){
         $head_categorys = \App\Model\Category\HeadCategory::select('id','head_category_name','category_icon','category_banner')->get();;
         return view('admin.content.head_category',compact('head_categorys'));
@@ -51,5 +47,15 @@ class HeadCategory extends Controller
             );
             return redirect()->back()->with($notification);
         }
+    }
+    public function delete_head_category($id){
+        $head_category = \App\Model\Category\HeadCategory::find($id);
+        unlink('upload/category/'.$head_category->category_banner);
+        $head_category->delete();
+        $notification = array(
+            'message' => "Category Deleted",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
     }
 }

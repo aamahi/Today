@@ -79,11 +79,9 @@
                                         <a class="dropdown-toggle"  data-toggle="dropdown" href="">Categories <b class="caret"></b></a>
 
                                         <ul class="dropdown-menu" role="menu" >
-                                            <li class="menu-header">Computer</li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
+                                            @foreach($head_categories as $head_category)
+                                            <li class="menu-header" href="">- {{$head_category->head_category_name}}</li>
+                                            @endforeach
 
                                         </ul>
                                     </li>

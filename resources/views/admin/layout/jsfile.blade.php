@@ -16,7 +16,8 @@
 
 <!--common script for all pages-->
 <script src="{{asset('/admin/js/common-scripts5e1f.js')}}?v=2"></script>
-
+<!--Sweert alert-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!--script for this page-->
 <script src="{{asset('/admin/js/sparkline-chart.js')}}"></script>
 <script src="{{asset('/admin/js/easy-pie-chart.js')}}"></script>
@@ -49,7 +50,27 @@
     }
     @endif
 </script>
+{{--Sweet alert for delete--}}
+
+<script>
+    $('.delete').on('click', function (event) {
+        event.preventDefault();
+        const url = $(this).attr('href');
+        swal({
+            title: 'Are you sure?',
+            text: 'This record and it`s details will be permanantly deleted!',
+            icon: 'warning',
+            buttons: ["Cancel", "Yes!"],
+        }).then(function(value) {
+            if (value) {
+                window.location.href = url;
+            }
+        });
+    });
+</script>
+
 {{--Drop down--}}
+
 <script type="text/javascript">
     jQuery(document).ready(function ()
     {

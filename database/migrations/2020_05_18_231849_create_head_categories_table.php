@@ -19,7 +19,6 @@ class CreateHeadCategoriesTable extends Migration
             $table->string('category_icon');
             $table->string('category_banner');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

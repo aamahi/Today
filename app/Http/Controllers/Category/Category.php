@@ -46,5 +46,13 @@ class Category extends Controller
         return redirect()->back()->with($notification);
 
     }
+    public function delete_category($id){
+    $sub_category = \App\Model\Category\Category::find($id)->delete();
+    $notification = array(
+        'message' => "Category Deleted",
+        'alert-type' => 'error'
+    );
+    return redirect()->back()->with($notification);
+}
 
 }

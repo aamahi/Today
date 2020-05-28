@@ -29,7 +29,7 @@
                                     <td class="hidden-phone">{{$head_category->head_category_name}}</td>
                                     <td>
                                         <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </button>
-                                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i> Delete </button>
+                                        <a href="{{route('delete_head_category',$head_category->id)}}" class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o "></i> Delete </a>
                                     </td>
                                 </tr>
                             @endforeach
