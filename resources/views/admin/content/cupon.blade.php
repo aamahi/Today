@@ -28,7 +28,7 @@
                                     <td class="hidden-phone">{{($cupon->expaire_date)}}</td>
                                     <td>
                                         <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </button>
-                                        <a href="{{route('delete_category',$cupon->id)}}" class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o "></i> Delete </a>
+                                        <a href="{{route('delete_cupon',$cupon->id)}}" class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o "></i> Delete </a>
                                     </td>
                                 </tr>
                             @endforeach

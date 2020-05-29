@@ -8,6 +8,10 @@ use Intervention\Image\Facades\Image;
 
 class HeadCategory extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function home(){
         $head_categorys = \App\Model\Category\HeadCategory::select('id','head_category_name','category_icon','category_banner')->get();;
         return view('admin.content.head_category',compact('head_categorys'));

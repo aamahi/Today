@@ -70,5 +70,7 @@ Route::prefix('admin')->group(function () {
     //Cupon
     Route::get('/cupon','Admin\CuponController@index')->name('admin.cupon');
     Route::post('/cupon','Admin\CuponController@add_cupon');
+    Route::get('/cupon/{id}','Admin\CuponController@delete_cupon')->name('delete_cupon');
+
 });
 

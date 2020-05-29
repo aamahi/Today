@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class CuponController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     public function index()
     {
         $cupons = Cupon::all();
@@ -31,6 +35,14 @@ class CuponController extends Controller
         $notification = array(
             'message' => "Cupon Added Successfully",
             'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function delete_cupon($id){
+        Cupon::find($id)->delete();
+        $notification = array(
+            'message' => "Cupon Deleted Successfully",
+            'alert-type' => 'error'
         );
         return redirect()->back()->with($notification);
     }

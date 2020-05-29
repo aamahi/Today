@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class Category extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function home(){
         $head_categories = DB::table('head_categories')->get();
         $categories = \App\Model\Category\Category::with('head_category')->with('sub_category')->select('id','head_category_id','sub_category_id','category_name')->get();
