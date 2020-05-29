@@ -11,6 +11,16 @@
 <script src="{{asset('/admin/js/jquery.customSelect.min.js')}}" ></script>
 <script src="{{asset('/admin/js/respond.min.js')}}" ></script>
 
+<script type="text/javascript" src="{{asset('admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/assets/bootstrap-daterangepicker/date.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/assets/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/assets/ckeditor/ckeditor.js')}}"></script>
+<!--custom tagsinput-->
+<script src="{{asset('admin/js/jquery.tagsinput.js')}}"></script>
+<!--custom checkbox & radio-->
+<script src="{{asset('admin/js/ga.js')}}"></script>
+<script type="text/javascript" src="{{asset('admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
 <!--right slidebar-->
 <script src="{{asset('/admin/js/slidebars.min.js')}}"></script>
 

@@ -17,6 +17,9 @@
     <link href="{{asset('/admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css')}}" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" href="{{asset('admin/css/owl.carousel.css')}}" type="text/css">
 
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/bootstrap-datepicker/css/datepicker.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('/admin/assets/bootstrap-colorpicker/css/colorpicker.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/bootstrap-daterangepicker/daterangepicker.css')}}" />
     <!--right slidebar-->
     <link href="{{asset('admin/css/slidebars.css')}}" rel="stylesheet">
     <!--toastr-->

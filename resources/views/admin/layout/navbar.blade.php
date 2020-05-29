@@ -20,6 +20,17 @@
                 </ul>
             </li>
             <li class="sub-menu">
+                <a  class="@yield('product')" href="javascript:;" >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Product</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="{{route('admin.product')}}">Add Product</a></li>
+{{--                    <li><a  href="{{route('admin.sub_category')}}">Sub Category</a></li>--}}
+{{--                    <li><a  href="{{route('admin.category')}}" >Category</a></li>--}}
+                </ul>
+            </li>
+            <li class="sub-menu">
                 <a  class="@yield('brand')" href="javascript:;" >
                     <i class="fa fa-bars"></i>
                     <span>Brand</span>
