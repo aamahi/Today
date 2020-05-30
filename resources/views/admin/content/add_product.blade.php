@@ -103,7 +103,7 @@
                                         <div class="form-group row">
                                             <label for="multipleImage" class="col-sm-4 col-form-label">Multiple Product Image</label>
                                             <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="multipleImage" name="multiple_image[]" >
+                                                <input type="file" class="form-control" id="multipleImage" name="multiple_image[]" multiple >
                                             </div>
                                         </div>
                                     </div>
