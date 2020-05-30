@@ -31,6 +31,7 @@ class Brand extends Controller
         $extension=  $brand_log->getClientOriginalExtension();
 
         $brand_logo_name= strtolower($join_brand_name.'_'.rand(1,9).'.'.$extension);
+
         $upload_location = base_path('public/upload/brand/'.$brand_logo_name);
         $upload_image = Image::make($brand_log)->resize(166,110)->save($upload_location);
         if ($upload_image){

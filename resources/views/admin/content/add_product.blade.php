@@ -22,7 +22,7 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <form method="post" action="{{route('admin.category')}}">
+                            <form method="post" action="{{route('admin.product')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-row align-items-center">
                                     <div class="col-md-4">
@@ -43,7 +43,7 @@
                                     <div class="col-md-4">
                                         <label>Category</label>
                                         <select name="category" class="form-control">
-                                            <option>--Sub Category--</option>
+                                            <option>-- Category--</option>
                                         </select>
                                     </div>
                                 </div>
@@ -76,16 +76,16 @@
                                     </div>
                                     <div class="col-md-3 float-left">
                                         <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input" id="today_offer" >
-                                            <label class="custom-control-label" for="today_offer" name="today_offer" value="1" > Today Offer </label>
+                                            <input type="checkbox" name="today_offer" value="1" class="custom-control-input" id="today_offer" >
+                                            <label class="custom-control-label" for="today_offer"> Today Offer </label>
                                         </div>
                                         <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input" id="special_offer">
-                                            <label class="custom-control-label" for="special_offer" value="1" name="special_offer"> Special Offer </label>
+                                            <input type="checkbox" name="special_offer" class="custom-control-input" value="1" id="special_offer">
+                                            <label class="custom-control-label" for="special_offer" > Special Offer </label>
                                         </div>
                                         <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" class="custom-control-input" id="hot_deal">
-                                            <label class="custom-control-label" name="hot_deal" value="1" for="hot_deal"> Hot Deal </label>
+                                            <input type="checkbox" name="hot_deal"  class="custom-control-input" value="1" id="hot_deal">
+                                            <label class="custom-control-label" for="hot_deal"> Hot Deal </label>
                                         </div>
                                     </div>
                                 </div>
