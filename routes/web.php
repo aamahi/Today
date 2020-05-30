@@ -74,8 +74,9 @@ Route::prefix('admin')->group(function () {
 
     // Product
 
-    Route::get('/product','Admin\ProductController@index')->name('admin.product');
-    Route::post('/product','Admin\ProductController@add_product');
+    Route::get('/product','Admin\ProductController@product_show')->name('admin.product_show');
+    Route::get('/add/product','Admin\ProductController@index')->name('admin.product');
+    Route::post('/add/product','Admin\ProductController@add_product');
     Route::get('/get_category/{id}','Admin\ProductController@category');
 });
 

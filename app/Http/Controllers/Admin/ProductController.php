@@ -72,4 +72,9 @@ class ProductController extends Controller
     }
 
 
+    public function product_show(){
+       $products = Product::with('category')->select('id','product_name','photo','category_id','price','quantity')->get();
+       Return view('admin.content.product',compact('products'));
+    }
+
 }

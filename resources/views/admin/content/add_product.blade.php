@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label>Discount Price</label>
-                                        <input type="number" class="form-control mb-4" name="discount_price" placeholder="Discount Price"  value="{{old('discount_price')}}">
+                                        <input type="number" class="form-control mb-4" name="discount_price" placeholder="Discount Percentage (%)"  value="{{old('discount_price')}}">
                                     </div>
                                     <div class="col-md-3">
                                         <label>Quantity</label>
