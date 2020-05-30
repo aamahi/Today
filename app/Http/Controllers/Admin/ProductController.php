@@ -54,15 +54,17 @@ class ProductController extends Controller
        Image::make($photo)->resize('917','1000')->save($upload_location);
        $add_product_id = Product::insertGetId($product);
 
-       foreach ($request->file('multiple_image') as $product_photos){
-           $photo_extension = $product_photos->getClientOriginalExtension();
-           $product_photo_name = "product_photo".date('y_mdhi_s').rand(1,9).".".$photo_extension;
-           $upload_location = base_path('public/upload/product_photo/'.$product_photo_name );
-           Image::make($product_photos)->resize('917','1000')->save($upload_location);
-            $multi_photo =[];
-            $multi_photo['product_id']=$add_product_id;
-            $multi_photo['product_photo']=$product_photo_name;
-            Product_photo::insert($multi_photo);
+       if ($request->file('multiple_image')){
+           foreach ($request->file('multiple_image') as $product_photos){
+               $photo_extension = $product_photos->getClientOriginalExtension();
+               $product_photo_name = "product_photo".date('y_mdhi_s').rand(1,9).".".$photo_extension;
+               $upload_location = base_path('public/upload/product_photo/'.$product_photo_name );
+               Image::make($product_photos)->resize('917','1000')->save($upload_location);
+               $multi_photo =[];
+               $multi_photo['product_id']=$add_product_id;
+               $multi_photo['product_photo']=$product_photo_name;
+               Product_photo::insert($multi_photo);
+           }
        }
         $notification = array(
             'message' => "Product Added Successfully",

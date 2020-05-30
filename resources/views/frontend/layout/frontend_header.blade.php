@@ -58,9 +58,10 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
                     <div class="logo">
-                        <a href="home.blade.php">
+                        <a href="">
 
-                            <img src="{{asset('frontend/assets/images/logo.png')}}" alt="">
+                            <img src="{{asset('frontend/assets/images/logo.png')}}" width="200" alt="">
+{{--                            <a href="{{route('admin.home')}}" class="logo">To<span>day</span></a>--}}
 
                         </a>
                     </div><!-- /.logo -->
