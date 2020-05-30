@@ -68,12 +68,12 @@ class ProductController extends Controller
             'message' => "Product Added Successfully",
             'alert-type' => 'success'
         );
-        return redirect()->back()->with($notification);
+        return redirect()->route('admin.product_show')->with($notification);
     }
 
 
     public function product_show(){
-       $products = Product::with('category')->select('id','product_name','photo','category_id','price','quantity')->get();
+       $products = Product::with('category')->select('id','product_name','photo','category_id','price','quantity')->orderBy('id','DESC')->get();
        Return view('admin.content.product',compact('products'));
     }
 
