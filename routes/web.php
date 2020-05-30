@@ -64,7 +64,7 @@ Route::prefix('admin')->group(function () {
     // category
     Route::get('/category', 'Category\Category@home')->name('admin.category');
     Route::post('/category', 'Category\Category@add_cateogry');
-    Route::get('/get_sub_category/{id}', 'Category\Category@getStates');
+    Route::get('/get_sub_category/{id}', 'Category\Category@sub_category');
     Route::get('/delete/category/{id}', 'Category\Category@delete_category')->name('delete_category');
 
     //Cupon
@@ -75,6 +75,6 @@ Route::prefix('admin')->group(function () {
     // Product
 
     Route::get('/product','Admin\ProductController@index')->name('admin.product');
-
+    Route::get('/get_category/{id}','Admin\ProductController@category');
 });
 

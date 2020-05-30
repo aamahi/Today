@@ -11,16 +11,6 @@
 <script src="{{asset('/admin/js/jquery.customSelect.min.js')}}" ></script>
 <script src="{{asset('/admin/js/respond.min.js')}}" ></script>
 
-<script type="text/javascript" src="{{asset('admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin/assets/bootstrap-daterangepicker/date.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin/assets/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin/assets/ckeditor/ckeditor.js')}}"></script>
-<!--custom tagsinput-->
-<script src="{{asset('admin/js/jquery.tagsinput.js')}}"></script>
-<!--custom checkbox & radio-->
-<script src="{{asset('admin/js/ga.js')}}"></script>
-<script type="text/javascript" src="{{asset('admin/assets/bootstrap-inputmask/bootstrap-inputmask.min.js')}}"></script>
 <!--right slidebar-->
 <script src="{{asset('/admin/js/slidebars.min.js')}}"></script>
 
@@ -37,7 +27,7 @@
 
 <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
+// Product Drop DAown
 <script>
         @if(Session::has('message'))
     var type = "{{ Session::get('alert-type', 'info') }}";
@@ -105,6 +95,34 @@
             else
             {
                 $('select[name="state"]').empty();
+            }
+        });
+    });
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function ()
+    {
+        jQuery('select[name="state"]').on('change',function(){
+            var sub_category_id = jQuery(this).val();
+            if(sub_category_id)
+            {
+                jQuery.ajax({
+                    url : 'get_category/' +sub_category_id,
+                    type : "GET",
+                    dataType : "json",
+                    success:function(data)
+                    {
+                        console.log(data);
+                        jQuery('select[name="category"]').empty();
+                        jQuery.each(data, function(key,value){
+                            $('select[name="category"]').append('<option value="'+ key +'">'+ value +'</option>');
+                        });
+                    }
+                });
+            }
+            else
+            {
+                $('select[name="category"]').empty();
             }
         });
     });

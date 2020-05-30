@@ -24,88 +24,91 @@
                             @endif
                             <form method="post" action="{{route('admin.category')}}">
                                 @csrf
-
                                 <div class="form-row align-items-center">
                                     <div class="col-md-4">
-                                        <label>HEad Categroy</label>
-                                        <input type="text" class="form-control mb-4" id="inlineFormInput" placeholder="Jane Doe">
+                                        <label>Head Categroy</label>
+                                        <select name="head_category_id" class="form-control">
+                                            <option>--Head Category--</option>
+                                            @foreach($head_categories as $head_category);
+                                                <option value="{{$head_category->id}}">{{$head_category->head_category_name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>HEad Categroy</label>
-                                        <input type="text" class="form-control mb-4" id="inlineFormInput" placeholder="Jane Doe">
+                                        <label>Sub Categroy</label>
+                                        <select name="state" class="form-control">
+                                            <option>--Sub Category--</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>HEad Categroy</label>
-                                        <input type="text" class="form-control mb-4" id="inlineFormInput" placeholder="Jane Doe">
+                                        <label>Category</label>
+                                        <select name="category" class="form-control">
+                                            <option>--Sub Category--</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <hr >
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-sm-2 control-label">Input focus</label>
+                                    <label class="col-sm-2 col-sm-2 control-label">Product Name</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="focusedInput" type="text" value="This is focused...">
+                                        <input class="form-control" name="product_name" type="text" placeholder="Product Name" value="{{old('product_name')}}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-sm-2 control-label">Decription</label>
                                     <div class="col-sm-10">
-                                        <textarea class="form-control" id="focusedInput" type="text" value="This is focused..."></textarea>
+                                        <textarea class="form-control" name="details">Product Decription...</textarea>
                                     </div>
                                 </div>
                                 <hr >
                                 <div class="form-row align-items-center">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Price</label>
-                                        <input type="number" class="form-control mb-4" id="inlineFormInput" placeholder="Jane Doe">
+                                        <input type="number" class="form-control mb-4" name="price" placeholder="Price"  value="{{old('price')}}">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Discount Price</label>
-                                        <input type="number" class="form-control mb-4" id="inlineFormInput" placeholder="Jane Doe">
+                                        <input type="number" class="form-control mb-4" name="discount_price" placeholder="Discount Price"  value="{{old('discount_price')}}">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label>Quantity</label>
-                                        <input type="text" class="form-control mb-4" id="inlineFormInput" placeholder="Jane Doe">
+                                        <input type="number" class="form-control mb-4" name="quantity" placeholder="Product Quantity"  value="{{old('quantity')}}">
+                                    </div>
+                                    <div class="col-md-3 float-left">
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input type="checkbox" class="custom-control-input" id="today_offer" >
+                                            <label class="custom-control-label" for="today_offer" name="today_offer" value="1" > Today Offer </label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input type="checkbox" class="custom-control-input" id="special_offer">
+                                            <label class="custom-control-label" for="special_offer" value="1" name="special_offer"> Special Offer </label>
+                                        </div>
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input type="checkbox" class="custom-control-input" id="hot_deal">
+                                            <label class="custom-control-label" name="hot_deal" value="1" for="hot_deal"> Hot Deal </label>
+                                        </div>
                                     </div>
                                 </div>
-                                <hr >
+                                <hr>
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <section class="card">
-                                            <header class="card-header">
-                                                Tags Input
-                                            </header>
-                                            <div class="card-body">
-                                                <input name="tagsinput" id="tagsinput" class="tagsinput" value="Flat,Design,Lab,Clean" />
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label for="inputEmail3" class="col-sm-4 col-form-label">Product Image</label>
+                                            <div class="col-sm-8">
+                                                <input type="file" class="form-control" id="inputEmail3" name="photo">
                                             </div>
-                                        </section>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <section class="card">
-                                            <header class="card-header">
-                                                Custom Checkbox & Radio
-                                            </header>
-                                            <div class="card-body">
-                                                <form action="#" method="get" accept-charset="utf-8">
-                                                    <div class="checkboxes">
-                                                        <label class="label_check" for="checkbox-01">
-                                                            <input name="sample-checkbox-01" id="checkbox-01" value="1" type="checkbox" checked /> I agree to the terms &#38; conditions.
-                                                        </label>
-                                                        <label class="label_check" for="checkbox-02">
-                                                            <input name="sample-checkbox-02" id="checkbox-02" value="1" type="checkbox" /> Please send me regular updates. </label>
-                                                        <label class="label_check" for="checkbox-03">
-                                                            <input name="sample-checkbox-02" id="checkbox-03" value="1" type="checkbox" /> This is nice checkbox.</label>
-
-                                                    </div>
-                                                </form>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label for="multipleImage" class="col-sm-4 col-form-label">Multiple Product Image</label>
+                                            <div class="col-sm-8">
+                                                <input type="file" class="form-control" id="multipleImage" name="multiple_image[]" >
                                             </div>
-
-                                        </section>
-
+                                        </div>
                                     </div>
                                 </div>
-
-
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary"> Add Product </button>
                             </form>
 
                         </div>

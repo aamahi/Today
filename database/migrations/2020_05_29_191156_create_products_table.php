@@ -21,7 +21,6 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->longText('details');
             $table->integer('quantity');
-            $table->string('size')->nullable();
             $table->integer('price');
             $table->integer('discount_price')->nullable();
             $table->string('hot_deal')->nullable();

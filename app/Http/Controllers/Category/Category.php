@@ -19,13 +19,7 @@ class Category extends Controller
         $categories = \App\Model\Category\Category::with('head_category')->with('sub_category')->select('id','head_category_id','sub_category_id','category_name')->get();
         return view('admin.content.category',compact('head_categories','categories'));
     }
-    public function get_sub_category(Request $request){
-        return $request->has(head_category_id);
-//        if ($request->has(head_category_id)){
-//            return DB::table('sub_categories')->where('head_category_id',$request->input('head_category_id'))->get();
-//        }
-    }
-    public function getStates($id)
+    public function sub_category($id)
     {
         $states = DB::table("sub_categories")->where("head_category_id",$id)->pluck("sub_category_name","id");
         return json_encode($states);
