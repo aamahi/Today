@@ -33,7 +33,7 @@
                                             <td>{{$product->price}} taka</td>
                                             <td>{{$product->quantity}} pics</td>
                                             <td>
-                                                <a class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                                <a href="{{route('view_product',$product->id)}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
                                                 <a class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
                                                 <a href="{{route('product_soft_delete',$product->id)}}" class="btn btn-sm btn-danger delete"><i class="fa fa-trash-o"></i></a>
                                             </td>

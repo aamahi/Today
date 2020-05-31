@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\productRequest;
+use App\Model\Category\Category;
 use App\Model\Category\HeadCategory;
 use App\Model\Product;
 use App\Model\Product_photo;
@@ -118,6 +119,13 @@ class ProductController extends Controller
         );
         return redirect()->back()->with($notification);
 
+    }
+
+    public function view_product($id){
+       $product = Product::with('category','sub_category','head_category')->find($id);
+       $categories = Category::select('category_name')->get();
+       $multi_photo = Product_photo::select('product_photo')->where('product_id',$id)->get();
+        return view('admin.content.view_product',compact('product','categories','multi_photo'));
     }
 
 }
