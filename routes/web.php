@@ -78,5 +78,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/product','Admin\ProductController@index')->name('admin.product');
     Route::post('/product','Admin\ProductController@add_product');
     Route::get('/get_category/{id}','Admin\ProductController@category');
+
+    Route::get('/product_soft_delete/{id}','Admin\ProductController@product_soft_delete')->name('product_soft_delete');
+    Route::get('/show_deleted_product/','Admin\ProductController@show_deleted_product')->name('show_deleted_product');
+    Route::get('/restore_deleted_product/{id}','Admin\ProductController@restore_deleted_product')->name('restore_deleted_product');
+    Route::get('/delete_deleted_product/{id}','Admin\ProductController@delete_deleted_product')->name('delete_deleted_product');
 });
 

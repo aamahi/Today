@@ -27,6 +27,7 @@
                 <ul class="sub">
                     <li><a  href="{{route('admin.product_show')}}">Show Product</a></li>
                     <li><a  href="{{route('admin.product')}}">Add Product</a></li>
+                    <li><a  href="{{route('show_deleted_product')}}">Deleted Product</a></li>
                 </ul>
             </li>
             <li class="sub-menu">

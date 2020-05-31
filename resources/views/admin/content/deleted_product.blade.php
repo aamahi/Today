@@ -21,6 +21,7 @@
                                         <th>Category</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
+                                        <th>Deleted</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -32,10 +33,10 @@
                                             <td>{{($product->category)->category_name}}</td>
                                             <td>{{$product->price}} taka</td>
                                             <td>{{$product->quantity}} pics</td>
+                                            <td>{{($product->deleted_at)->format('d/m/Y - h:i A')}}</td>
                                             <td>
-                                                <a class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
-                                                <a class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
-                                                <a href="{{route('product_soft_delete',$product->id)}}" class="btn btn-sm btn-danger delete"><i class="fa fa-trash-o"></i></a>
+                                                <a href="{{route('restore_deleted_product',$product->id)}}" class="btn btn-sm btn-info"><i class="fa fa-reply"> Restore</i></a>
+                                                <a href="{{route('delete_deleted_product',$product->id)}}" class="btn btn-sm btn-danger delete"><i class="fa fa-trash-o"> Delete</i></a>
                                             </td>
                                         </tr>
                                     @endforeach

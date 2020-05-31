@@ -79,4 +79,45 @@ class ProductController extends Controller
        Return view('admin.content.product',compact('products'));
     }
 
+    public function product_soft_delete($id){
+        Product::find($id)->delete();
+        $notification = array(
+            'message' => "Product Temporary Deleted",
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function restore_deleted_product($id){
+       Product::onlyTrashed()->find($id)->restore();
+        $notification = array(
+            'message' => "Product Restored",
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function show_deleted_product(){
+       $products = Product::onlyTrashed()->get();
+        return view('admin.content.deleted_product',compact('products'));
+    }
+    public function delete_deleted_product($id){
+       $old_pic = Product::onlyTrashed()->find($id);
+       unlink('upload/product/'.$old_pic->photo);
+       $multi_photo = Product_photo::where('product_id',$id)->get();
+        foreach ($multi_photo as $item) {
+            if($item->product_photo){
+                unlink('upload/product_photo/'.$item->product_photo);
+            }
+            Product_photo::find($item->id)->delete();
+        }
+
+        $old_pic->forceDelete();
+
+        $notification = array(
+            'message' => "Product Deleted",
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+
+    }
+
 }
