@@ -18,6 +18,8 @@ class CreateHeadCategoriesTable extends Migration
             $table->string('head_category_name');
             $table->string('category_icon');
             $table->string('category_banner');
+            $table->string('web_banner');
+            $table->string('slug');
             $table->timestamps();
         });
     }

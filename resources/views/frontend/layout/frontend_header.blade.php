@@ -194,7 +194,7 @@
                                                         <h2 class="title">{{$sub_category->sub_category_name}}</h2>
                                                         <ul class="links">
                                                             @foreach(\App\Model\Category\Category::where('sub_category_id',$sub_category->id)->get() as $category)
-                                                                <li><a href="#">{{$category->category_name}}</a></li>
+                                                                <li><a href="{{url('/'.$category->id,$category->slug)}}">{{$category->category_name}}</a></li>
                                                             @endforeach
                                                         </ul>
                                                     </div><!-- /.col -->
@@ -211,85 +211,6 @@
 
                                 </li>
                                 @endforeach
-                                <li class="dropdown mega-menu">
-                                    <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics
-                                        <span class="menu-label hot-menu hidden-xs">hot</span>
-                                    </a>
-                                    <ul class="dropdown-menu container">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-                                                    <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                                                        <h2 class="title">Laptops</h2>
-                                                        <ul class="links">
-                                                            <li><a href="#">Gaming</a></li>
-                                                            <li><a href="#">Laptop Skins</a></li>
-                                                            <li><a href="#">Apple</a></li>
-                                                            <li><a href="#">Dell</a></li>
-                                                            <li><a href="#">Lenovo</a></li>
-                                                            <li><a href="#">Microsoft</a></li>
-                                                            <li><a href="#">Asus</a></li>
-                                                            <li><a href="#">Adapters</a></li>
-                                                            <li><a href="#">Batteries</a></li>
-                                                            <li><a href="#">Cooling Pads</a></li>
-                                                        </ul>
-                                                    </div><!-- /.col -->
-
-                                                    <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                                                        <h2 class="title">Desktops</h2>
-                                                        <ul class="links">
-                                                            <li><a href="#">Routers & Modems</a></li>
-                                                            <li><a href="#">CPUs, Processors</a></li>
-                                                            <li><a href="#">PC Gaming Store</a></li>
-                                                            <li><a href="#">Graphics Cards</a></li>
-                                                            <li><a href="#">Components</a></li>
-                                                            <li><a href="#">Webcam</a></li>
-                                                            <li><a href="#">Memory (RAM)</a></li>
-                                                            <li><a href="#">Motherboards</a></li>
-                                                            <li><a href="#">Keyboards</a></li>
-                                                            <li><a href="#">Headphones</a></li>
-                                                        </ul>
-                                                    </div><!-- /.col -->
-
-                                                    <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                                                        <h2 class="title">Cameras</h2>
-                                                        <ul class="links">
-                                                            <li><a href="#">Accessories</a></li>
-                                                            <li><a href="#">Binoculars</a></li>
-                                                            <li><a href="#">Telescopes</a></li>
-                                                            <li><a href="#">Camcorders</a></li>
-                                                            <li><a href="#">Digital</a></li>
-                                                            <li><a href="#">Film Cameras</a></li>
-                                                            <li><a href="#">Flashes</a></li>
-                                                            <li><a href="#">Lenses</a></li>
-                                                            <li><a href="#">Surveillance</a></li>
-                                                            <li><a href="#">Tripods</a></li>
-
-                                                        </ul>
-                                                    </div><!-- /.col -->
-                                                    <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                                                        <h2 class="title">Mobile Phones</h2>
-                                                        <ul class="links">
-                                                            <li><a href="#">Apple</a></li>
-                                                            <li><a href="#">Samsung</a></li>
-                                                            <li><a href="#">Lenovo</a></li>
-                                                            <li><a href="#">Motorola</a></li>
-                                                            <li><a href="#">LeEco</a></li>
-                                                            <li><a href="#">Asus</a></li>
-                                                            <li><a href="#">Acer</a></li>
-                                                            <li><a href="#">Accessories</a></li>
-                                                            <li><a href="#">Headphones</a></li>
-                                                            <li><a href="#">Memory Cards</a></li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner">
-                                                        <a href="#"><img alt="" src="{{asset('frontend/assets/images/banners/banner-side.png')}}"></a>
-                                                    </div>
-                                                </div><!-- /.row -->
-                                            </div><!-- /.yamm-content -->					</li>
-                                    </ul>
-                                </li>
 
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>

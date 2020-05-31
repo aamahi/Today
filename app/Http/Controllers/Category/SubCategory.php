@@ -21,9 +21,13 @@ class SubCategory extends Controller
             'head_category_id'=>'required',
             'sub_category_name'=>'required',
         ]);
+        $cat_name = $request->sub_category_name;
+        $explode = explode(' ',$cat_name);
+        $slug = strtolower(join('',$explode));
         $data =[];
         $data['head_category_id']=$request->head_category_id;
         $data['sub_category_name']=$request->sub_category_name;
+        $data['slug']=$slug;
         \App\Model\Category\SubCategory::insert($data);
 
         $notification = array(

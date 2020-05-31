@@ -58,6 +58,7 @@
                                 <div class="form-group">
                                     <label for="head_categoy_name">Category Name</label>
                                     <input type="text" class="form-control" id="head_categoy_name" name="head_category_name" value="{{old('head_categoy_name')}}" placeholder="Category Name">
+                                    <input type="hidden"  name="slug" >
                                 </div>
                                 <div class="form-group">
                                     <label for="category_icon">Category Icon</label>
@@ -66,6 +67,10 @@
                                 <div class="form-group">
                                     <label for="category_banner">Category Banner</label>
                                     <input type="file" class="form-control" id="category_banner" name="category_banner">
+                                </div>
+                                <div class="form-group">
+                                    <label for="web_banner">Web Banner</label>
+                                    <input type="file" class="form-control" id="web_banner" name="web_banner">
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </form>

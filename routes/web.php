@@ -29,6 +29,19 @@ Route::prefix('admin')->group(function () {
 //============== FRONTEND =====================================
 
 Route::get('/', 'Frontend\Index@home')->name('frontend_home');
+//Route::get('/{id}/{slug}', 'Frontend\CategoryController@index');
+
+
+
+
+
+
+
+
+
+
+
+
 
 //============== ADMIN ============================================
 Route::prefix('admin')->group(function () {
@@ -80,6 +93,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/get_category/{id}','Admin\ProductController@category');
 
     Route::get('/view_product/{id}','Admin\ProductController@view_product')->name('view_product');
+    Route::get('/edit_product/{id}','Admin\ProductController@edit_product')->name('edit_product');
+    Route::post('/edit_product/{id}','Admin\ProductController@edit_product');
 
     Route::get('/product_soft_delete/{id}','Admin\ProductController@product_soft_delete')->name('product_soft_delete');
     Route::get('/show_deleted_product/','Admin\ProductController@show_deleted_product')->name('show_deleted_product');

@@ -128,4 +128,10 @@ class ProductController extends Controller
         return view('admin.content.view_product',compact('product','categories','multi_photo'));
     }
 
+    public function edit_product($id){
+       $products = Product::find($id);
+       return view('admin.content.edit_product',compact('products'));
+    }
+
+
 }

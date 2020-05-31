@@ -31,10 +31,14 @@ class Category extends Controller
             'category_name'=>'required',
         ];
         $this->validate($request,$validation_rulues);
+        $cat_name = $request->category_name;
+        $explode = explode(' ',$cat_name);
+        $slug = strtolower(join('',$explode));
         $category=[];
         $category['head_category_id'] =$request->head_category_id;
         $category['sub_category_id'] =$request->state;
         $category['category_name'] =$request->category_name;
+        $category['slug'] =$slug;
 //        print_r($category);
         $category['created_at'] =Carbon::now();
         \App\Model\Category\Category::insert($category);
