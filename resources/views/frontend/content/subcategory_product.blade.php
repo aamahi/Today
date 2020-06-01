@@ -28,7 +28,7 @@
                                                 <div class="accordion-inner">
                                                     <ul>
                                                         @foreach($category->sub_categories as $sub_category)
-                                                            <li><a href="{{url('/subcategory/'.$sub_category->id)}}">{{$sub_category->sub_category_name}}</a></li>
+                                                            <li><a href="{{url('/subcategory/',$sub_category->id)}}">{{$sub_category->sub_category_name}}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 </div><!-- /.accordion-inner -->

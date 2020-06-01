@@ -191,7 +191,7 @@
                                                 <div class="row">
                                                     @foreach($head_category->sub_categories as $sub_category)
                                                         <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                                                            <a style="margin-left: -15px;" href="hello.com"><h2>{{$sub_category->sub_category_name}}</h2></a>
+                                                            <a style="margin-left: -15px;" href="{{url('/subcategory/'.$sub_category->id)}}"><h2>{{$sub_category->sub_category_name}}</h2></a>
                                                         <ul class="links">
                                                             @foreach(\App\Model\Category\Category::where('sub_category_id',$sub_category->id)->get() as $category)
                                                                 <li><a href="{{url('/category/'.$category->id)}}">{{$category->category_name}}</a></li>
