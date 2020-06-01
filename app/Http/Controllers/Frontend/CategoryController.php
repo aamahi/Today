@@ -6,16 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Model\Brand;
 use App\Model\Category\Category;
 use App\Model\Category\HeadCategory;
+use App\Model\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index($id,$slug){
+    public function index($id){
         $head_category_id = Category::find($id)->head_category_id;
         $web_banner = HeadCategory::where('id',$head_category_id)->first();
-//        $web_banner = $head_category->web_banner;
+        $products = Product::where('category_id',$id)->get();
         $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
         $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
-        return view('frontend.content.category',compact('web_banner','head_categories','brands'));
+        return view('frontend.content.category',compact('web_banner','head_categories','brands','products'));
     }
 }

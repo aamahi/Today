@@ -29,7 +29,7 @@ Route::prefix('admin')->group(function () {
 //============== FRONTEND =====================================
 
 Route::get('/', 'Frontend\Index@home')->name('frontend_home');
-//Route::get('/{id}/{slug}', 'Frontend\CategoryController@index');
+Route::get('category/{id}', 'Frontend\CategoryController@index');
 
 
 

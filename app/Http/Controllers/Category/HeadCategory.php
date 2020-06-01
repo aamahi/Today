@@ -45,7 +45,7 @@ class HeadCategory extends Controller
             $web_banner= $request->file('web_banner');
             $extension_web=  $web_banner->getClientOriginalExtension();
             $web_banner_name = $slug.".".$extension_web;
-            $upload_location_web = base_path('public/upload/web_banner'.$web_banner_name);
+            $upload_location_web = base_path('public/upload/web_banner/'.$web_banner_name);
             $upload_web = Image::make($web_banner)->resize(850,380)->save($upload_location_web);
             if ($upload_web){
                 $data =[];

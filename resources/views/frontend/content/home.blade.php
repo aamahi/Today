@@ -1008,20 +1008,20 @@
                                                         <h3 class="name"><a href="detail.html">{{$product->product_name}}</a></h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
-                                                    @if($product->discount_price)
-                                                        <div class="product-price">
-                                                            <span class="price">
-                                                                ৳ {{$product->price-(($product->price/100)*$product->discount_price)}}</i>
-                                                            </span>
-                                                                <span class="price-before-discount">৳ {{$product->price}}</span>
-                                                        </div>
-                                                    @else
-                                                        <div class="product-price">
-                                                            <span class="price">
-                                                                ৳ {{$product->price}}</i>
-                                                            </span>
-                                                        </div>
-                                                    @endif
+                                                            @if($product->discount_price)
+                                                                <div class="product-price">
+                                                                    <span class="price">
+                                                                        ৳ {{$product->price-(($product->price/100)*$product->discount_price)}}</i>
+                                                                    </span>
+                                                                        <span class="price-before-discount">৳ {{$product->price}}</span>
+                                                                </div>
+                                                            @else
+                                                            <div class="product-price">
+                                                                <span class="price">
+                                                                    ৳ {{$product->price}}</i>
+                                                                </span>
+                                                            </div>
+                                                            @endif
 
                                                         <!-- /.product-price -->
 
