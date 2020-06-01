@@ -58,11 +58,9 @@
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
                     <div class="logo">
-                        <a href="">
-
+                        <a href="{{url('/')}}">
                             <img src="{{asset('frontend/assets/images/logo.png')}}" width="200" alt="">
 {{--                            <a href="{{route('admin.home')}}" class="logo">To<span>day</span></a>--}}
-
                         </a>
                     </div><!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= -->				</div><!-- /.logo-holder -->
@@ -179,7 +177,7 @@
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw">
-                                    <a href="home.blade.php" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                                    <a href="{{url('/')}}" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Home</a>
 
                                 </li>
                                 @foreach($head_categories as $head_category)
@@ -190,8 +188,8 @@
                                             <div class="yamm-content ">
                                                 <div class="row">
                                                     @foreach($head_category->sub_categories as $sub_category)
-                                                        <div class="col-xs-12 col-sm-6 col-md-2 col-menu">
-                                                            <a style="margin-left: -15px;" href="{{url('/subcategory/'.$sub_category->id)}}"><h2>{{$sub_category->sub_category_name}}</h2></a>
+                                                        <div class="col-xs-12 col-sm-5 col-md-1 col-menu">
+                                                            <a style="margin-left: -15px;" href="{{url('/subcategory/'.$sub_category->id)}}"><h2>{{strtoupper($sub_category->sub_category_name)}}</h2></a>
                                                         <ul class="links">
                                                             @foreach(\App\Model\Category\Category::where('sub_category_id',$sub_category->id)->get() as $category)
                                                                 <li><a href="{{url('/category/'.$category->id)}}">{{$category->category_name}}</a></li>
@@ -221,7 +219,7 @@
 
                                                     <div class="col-xs-12 col-menu">
                                                         <ul class="links">
-                                                            <li><a href="home.blade.php">Home</a></li>
+                                                            <li><a href="{{url('/')}}">Home</a></li>
                                                             <li><a href="category.html">Category</a></li>
                                                             <li><a href="detail.html">Detail</a></li>
                                                             <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>

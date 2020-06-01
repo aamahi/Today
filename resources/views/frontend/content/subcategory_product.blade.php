@@ -47,10 +47,10 @@
                                 </div>
                                 <div class="sidebar-widget-body m-t-10">
                                     <div class="price-range-holder">
-      	    <span class="min-max">
-                 <span class="pull-left">$200.00</span>
-                 <span class="pull-right">$800.00</span>
-            </span>
+                                        <span class="min-max">
+                                             <span class="pull-left">$200.00</span>
+                                             <span class="pull-right">$800.00</span>
+                                        </span>
                                         <input type="text" id="amount" style="border:0; color:#666666; font-weight:bold;text-align:center;">
 
                                         <input type="text" class="price-slider" value="" >
@@ -182,16 +182,17 @@
                             </div><!-- /.col -->
                             <div class="col col-sm-12 col-md-6"></div><!-- /.col -->
                             <div class="col col-sm-6 col-md-4 text-right">
-                                <div class="pagination-container">
-                                    <ul class="list-inline list-unstyled">
-                                        <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul><!-- /.list-inline -->
-                                </div><!-- /.pagination-container -->		</div><!-- /.col -->
+{{--                                <div class="pagination-container">--}}
+                                    {{$products->links()}}
+{{--                                    <ul class="list-inline list-unstyled">--}}
+{{--                                        <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>--}}
+{{--                                        <li><a href="#">1</a></li>--}}
+{{--                                        <li class="active"><a href="#">2</a></li>--}}
+{{--                                        <li><a href="#">3</a></li>--}}
+{{--                                        <li><a href="#">4</a></li>--}}
+{{--                                        <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>--}}
+{{--                                    </ul><!-- /.list-inline -->--}}
+{{--                                </div><!-- /.pagination-container -->		</div><!-- /.col -->--}}
                         </div><!-- /.row -->
                     </div>
 
@@ -381,16 +382,17 @@
                         <div class="clearfix filters-container">
 
                             <div class="text-right">
-                                <div class="pagination-container">
-                                    <ul class="list-inline list-unstyled">
-                                        <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li class="active"><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul><!-- /.list-inline -->
-                                </div><!-- /.pagination-container -->						    </div><!-- /.text-right -->
+                                {{$products->links()}}
+{{--                                <div class="pagination-container">--}}
+{{--                                    <ul class="list-inline list-unstyled">--}}
+{{--                                        <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>--}}
+{{--                                        <li><a href="#">1</a></li>--}}
+{{--                                        <li class="active"><a href="#">2</a></li>--}}
+{{--                                        <li><a href="#">3</a></li>--}}
+{{--                                        <li><a href="#">4</a></li>--}}
+{{--                                        <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>--}}
+{{--                                    </ul><!-- /.list-inline -->--}}
+{{--                                </div><!-- /.pagination-container -->						    </div><!-- /.text-right -->--}}
 
                         </div><!-- /.filters-container -->
 

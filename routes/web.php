@@ -31,6 +31,7 @@ Route::prefix('admin')->group(function () {
 Route::get('/', 'Frontend\Index@home')->name('frontend_home');
 Route::get('category/{id}', 'Frontend\CategoryController@index');
 Route::get('subcategory/{id}', 'Frontend\CategoryController@subcategory_product');
+Route::get('product/{id}', 'Frontend\CategoryController@view_product');
 
 
 

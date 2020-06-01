@@ -16,8 +16,9 @@ class Index extends Controller
         $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
         $banners = Banner::select('web_banner')->orderBy('id','DESC')->get();
         $products = Product::select('id','product_name','photo','price','discount_price','quantity','hot_deal','special_offer','today_offer')->orderBy('id','DESC')->get();
+        $special_offers = Product::select('id','product_name','photo','price','discount_price','quantity','hot_deal','special_offer','today_offer')->orderBy('id','DESC')->where('special_offer',1)->get();
 //        $special_offers = Product::select('id','product_name','photo','price','quantity')->orderBy('id','DESC')->where('special_offer',1)->get();
-        return view("frontend.content.home",compact('brands','head_categories','banners','products'));
+        return view("frontend.content.home",compact('brands','head_categories','banners','products','special_offers'));
     }
 
 }
