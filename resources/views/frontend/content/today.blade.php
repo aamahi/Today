@@ -28,7 +28,7 @@
                                                 <div class="accordion-inner">
                                                     <ul>
                                                         @foreach($category->sub_categories as $sub_category)
-                                                            <li><a href="{{url('/subcategory/',$sub_category->id)}}">{{$sub_category->sub_category_name}}</a></li>
+                                                            <li><a href="{{url('/subcategory/'.$sub_category->id)}}">{{$sub_category->sub_category_name}}</a></li>
                                                         @endforeach
                                                     </ul>
                                                 </div><!-- /.accordion-inner -->
@@ -47,10 +47,10 @@
                                 </div>
                                 <div class="sidebar-widget-body m-t-10">
                                     <div class="price-range-holder">
-                                        <span class="min-max">
-                                             <span class="pull-left">$200.00</span>
-                                             <span class="pull-right">$800.00</span>
-                                        </span>
+      	    <span class="min-max">
+                 <span class="pull-left">$200.00</span>
+                 <span class="pull-right">$800.00</span>
+            </span>
                                         <input type="text" id="amount" style="border:0; color:#666666; font-weight:bold;text-align:center;">
 
                                         <input type="text" class="price-slider" value="" >
@@ -158,14 +158,6 @@
                 <div class='col-md-9'>
                     <!-- ========================================== SECTION – HERO ========================================= -->
 
-                    <div id="category" class="category-carousel hidden-xs">
-                        <div class="item">
-                            <div class="image">
-                                <img src="{{asset('/upload/web_banner/'.$web_banner->web_banner)}}" alt="" class="img-responsive">
-                            </div>
-                        </div>
-                    </div>
-
 
                     <!-- ========================================= SECTION – HERO : END ========================================= -->
                     <div class="clearfix filters-container m-t-10">
@@ -182,17 +174,9 @@
                             </div><!-- /.col -->
                             <div class="col col-sm-12 col-md-6"></div><!-- /.col -->
                             <div class="col col-sm-6 col-md-4 text-right">
-{{--                                <div class="pagination-container">--}}
+                                <div class="pagination-container">
                                     {{$products->links()}}
-{{--                                    <ul class="list-inline list-unstyled">--}}
-{{--                                        <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>--}}
-{{--                                        <li><a href="#">1</a></li>--}}
-{{--                                        <li class="active"><a href="#">2</a></li>--}}
-{{--                                        <li><a href="#">3</a></li>--}}
-{{--                                        <li><a href="#">4</a></li>--}}
-{{--                                        <li class="next"><a href="#"><i class="fa fa-angle-right"></i></a></li>--}}
-{{--                                    </ul><!-- /.list-inline -->--}}
-{{--                                </div><!-- /.pagination-container -->		</div><!-- /.col -->--}}
+                                </div><!-- /.pagination-container -->		</div><!-- /.col -->
                         </div><!-- /.row -->
                     </div>
 
@@ -384,6 +368,7 @@
                             <div class="text-right">
                                 {{$products->links()}}
 {{--                                <div class="pagination-container">--}}
+
 {{--                                    <ul class="list-inline list-unstyled">--}}
 {{--                                        <li class="prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>--}}
 {{--                                        <li><a href="#">1</a></li>--}}
@@ -402,11 +387,9 @@
                 </div><!-- /.col -->
             </div><!-- /.row -->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-
+                @include('frontend.layout.frontend_brands')
             <!-- /.logo-slider -->
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
 
     </div>
-    @include('frontend.layout.frontend_brands')
-
 @endsection

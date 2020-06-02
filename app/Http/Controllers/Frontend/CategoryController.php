@@ -35,4 +35,11 @@ class CategoryController extends Controller
         $product_photo = Product_photo::where('product_id',$id)->get();
         return view('frontend.content.product_view',compact('product','product_photo','head_categories'));
     }
+    public function today(){
+//        $web_banner = HeadCategory::where('id',$head_category_id)->first();
+        $products = Product::where('today_offer',1)->paginate(6);
+        $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
+        $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
+        return view('frontend.content.today',compact('head_categories','brands','products'));
+    }
 }

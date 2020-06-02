@@ -249,7 +249,7 @@
                                     </ul>
                                 </li>
                                 <li class="dropdown  navbar-right special-menu">
-                                    <a href="#">Todays offer</a>
+                                    <a href="{{route('today')}}">Todays offer</a>
                                 </li>
 
 
