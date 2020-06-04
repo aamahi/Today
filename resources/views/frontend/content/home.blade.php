@@ -1028,19 +1028,36 @@
                                                                     <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </button>
-                                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
 
                                                                 </li>
+{{--                                                                <li class="add-cart-button btn-group">--}}
+{{--                                                                    <form action="" id="addWish" method="post">--}}
+{{--                                                                    <button type="submit"  data-toggle="tooltip" class="add-to-cart btn btn-success" type="button" title="Add Wish">--}}
+{{--                                                                        <i class="fa fa-heart"></i>--}}
+{{--                                                                    </button>--}}
+{{--                                                                    </form>--}}
 
+{{--                                                                </li>--}}
                                                                 <li class="lnk wishlist">
-                                                                    <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist">
-                                                                        <i class="icon fa fa-heart"></i>
-                                                                    </a>
+                                                                        <a data-id="{{$product->id}}" href="" data-toggle="tooltip" class="add-to-cart addwish"  title="Wishlist">
+                                                                            <i class="icon fa fa-heart"></i>
+                                                                        </a>
+{{--                                                                    </form>--}}
                                                                 </li>
+
+{{--                                                                <li class="lnk wishlist">--}}
+{{--                                                                    <form action="{{url('/hi')}}" methoSPECIAL OFFER
+d ="post" >--}}
+{{--                                                                        <input type="hidden" name="product_id" value="{{$product->id}}">--}}
+{{--                                                                        <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart">--}}
+{{--                                                                            <i class="fa fa-heart-o"></i>--}}
+{{--                                                                        </button>--}}
+{{--                                                                    </form>--}}
+{{--                                                                </li>--}}
 
                                                                 <li class="lnk">
-                                                                    <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare">
-                                                                        <i class="fa fa-signal" aria-hidden="true"></i>
+                                                                    <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Quick View">
+                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
                                                                     </a>
                                                                 </li>
                                                             </ul>

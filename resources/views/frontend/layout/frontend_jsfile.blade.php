@@ -22,7 +22,32 @@
 <script src="{{asset('frontend/assets/js/wow.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/scripts.js')}}"></script>
 
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+        $('.addwish').on('click',function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            if(id){
+                $.ajax({
+                    url:"{{url('/add/wishlist/')}}/"+id,
+                    type:"GET",
+                    dataType:"json",
+                    success:function (data) {
+                        console.log(data)
+                    },
+                });
+            }else{
+                alert('danger');
+            }
+        })
+    });
+</script>
 </body>
 
 </html>

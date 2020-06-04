@@ -33,6 +33,7 @@ Route::get('category/{id}', 'Frontend\CategoryController@index');
 Route::get('subcategory/{id}', 'Frontend\CategoryController@subcategory_product');
 Route::get('product/{id}', 'Frontend\CategoryController@view_product');
 Route::get('today', 'Frontend\CategoryController@today')->name('today');
+Route::get('/add/wishlist/{id}', 'Frontend\WishController@add_wish');
 
 
 
