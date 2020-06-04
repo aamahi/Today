@@ -33,7 +33,9 @@ class CategoryController extends Controller
         $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
         $product = Product::find($id);
         $product_photo = Product_photo::where('product_id',$id)->get();
-        return view('frontend.content.product_view',compact('product','product_photo','head_categories'));
+        $category_id = Product::find($id)->category_id;
+        $related_product = Product::where('category_id',$category_id)->where('id','!=',$id)->get();
+        return view('frontend.content.product_view',compact('product','product_photo','head_categories','related_product'));
     }
     public function today(){
 //        $web_banner = HeadCategory::where('id',$head_category_id)->first();

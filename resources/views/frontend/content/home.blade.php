@@ -992,14 +992,9 @@
                                                             <div class="tag sale"><span>out</span></div>
                                                         @elseif($product->discount_price)
                                                             <div class="tag sale"><span> - {{$product->discount_price}}% </span></div>
-                                                        @elseif($product->today_offer)
-                                                            <div class="tag new"><span>Today</span></div>
                                                         @elseif($product->hot_deal)
                                                             <div class="tag hot"><span>HOT</span></div>
-                                                        @elseif($product->special_offer)
-                                                            <div class="tag new"><span>Special</span></div>
                                                         @endif
-
 
                                                     </div><!-- /.product-image -->
 
@@ -1011,7 +1006,7 @@
                                                             @if($product->discount_price)
                                                                 <div class="product-price">
                                                                     <span class="price">
-                                                                        ৳ {{$product->price-(($product->price/100)*$product->discount_price)}}</i>
+                                                                        ৳ {{$product->price-(($product->price/100)*$product->discount_price)}}
                                                                     </span>
                                                                         <span class="price-before-discount">৳ {{$product->price}}</span>
                                                                 </div>
