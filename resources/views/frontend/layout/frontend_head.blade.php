@@ -16,7 +16,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}">
-
+    <!--toastr-->
+    <link href="{{asset('admin/assets/toastr-master/toastr.css')}}" rel="stylesheet" type="text/css" />
     <!-- Customizable CSS -->
     <link rel="stylesheet" href="{{asset('frontend/assets/css/main.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/blue.css')}}">
