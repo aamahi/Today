@@ -6,7 +6,7 @@
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
+                        <li><a href="{{route('wishlist')}}"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                         <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
                             <!-- Authentication Links -->
@@ -228,7 +228,7 @@
                                                             <li><a href="blog-details.html">Blog Detail</a></li>
                                                             <li><a href="contact.html">Contact</a></li>
                                                             <li><a href="sign-in.html">Sign In</a></li>
-                                                            <li><a href="my-wishlist.html">Wishlist</a></li>
+                                                            <li><a href="{{route('wishlist')}}">Wishlist</a></li>
                                                             <li><a href="terms-conditions.html">Terms and Condition</a></li>
                                                             <li><a href="track-orders.html">Track Orders</a></li>
                                                             <li><a href="product-comparison.html">Product-Comparison</a></li>

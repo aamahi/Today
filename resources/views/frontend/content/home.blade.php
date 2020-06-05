@@ -1030,14 +1030,6 @@
                                                                     </button>
 
                                                                 </li>
-{{--                                                                <li class="add-cart-button btn-group">--}}
-{{--                                                                    <form action="" id="addWish" method="post">--}}
-{{--                                                                    <button type="submit"  data-toggle="tooltip" class="add-to-cart btn btn-success" type="button" title="Add Wish">--}}
-{{--                                                                        <i class="fa fa-heart"></i>--}}
-{{--                                                                    </button>--}}
-{{--                                                                    </form>--}}
-
-{{--                                                                </li>--}}
                                                                 <li class="lnk wishlist">
                                                                         <a data-id="{{$product->id}}" href="" data-toggle="tooltip" class="add-to-cart addwish"  title="Wishlist">
                                                                             <i class="icon fa fa-heart"></i>
@@ -1225,7 +1217,7 @@ d ="post" >--}}
                                                     </li>
 
                                                     <li class="lnk wishlist">
-                                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                        <a class="add-to-cart addwish" data-id="{{$product->id}}" title="Wishlist">
                                                             <i class="icon fa fa-heart"></i>
                                                         </a>
                                                     </li>
@@ -1703,7 +1695,7 @@ d ="post" >--}}
                                                         </li>
 
                                                         <li class="lnk wishlist">
-                                                            <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                            <a class="add-to-cart addwish"  data-id="{{$product->id}}" title="Wishlist">
                                                                 <i class="icon fa fa-heart"></i>
                                                             </a>
                                                         </li>

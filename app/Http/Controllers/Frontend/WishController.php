@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Model\Category\HeadCategory;
 use App\Model\Wish;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -16,12 +17,13 @@ class WishController extends Controller
 //    }
 
     public function add_wish($id){
-        $user_id = Auth::user()->id;
-        $data=[];
-        $data['user_id']=$user_id;
-        $data['product_id']=$id;
-        $data['ipaddress']= request()->ip();
+
         if(Auth::check()){
+            $user_id = Auth::user()->id;
+            $data=[];
+            $data['user_id']=$user_id;
+            $data['product_id']=$id;
+            $data['ipaddress']= request()->ip();
             if(Wish::where('product_id',$id)->where('user_id',$user_id)->exists()){
                 return response()->json([
                     'error'=>"Product already exits !"
@@ -35,10 +37,16 @@ class WishController extends Controller
 
         }else{
             return response()->json([
-                'error'=>"Please Login !"
+                'error'=>"Please Login Frist !"
             ]);
         }
 
+    }
+
+    public function wishlist(){
+        $wishlists = Wish::with('product')->select('id','product_id')->get();
+        $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
+        return view('frontend.content.wishlist',compact('head_categories','wishlists'));
     }
 
 }

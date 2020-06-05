@@ -211,7 +211,7 @@
                                                 <div class="product">
                                                     <div class="product-image">
                                                         <div class="image">
-                                                            <a href="detail.html"><img  src="{{asset('/upload/product/'.$product->photo)}}" alt=""></a>
+                                                            <a href="{{url('/product/'.$product->id)}}"><img  src="{{asset('/upload/product/'.$product->photo)}}" alt=""></a>
                                                         </div><!-- /.image -->
 
                                                         @if($product->quantity==0)
@@ -229,7 +229,7 @@
 
 
                                                     <div class="product-info text-left">
-                                                        <h3 class="name"><a href="detail.html">{{$product->product_name}}</a></h3>
+                                                        <h3 class="name"><a href="{{url('/product/'.$product->id)}}">{{$product->product_name}}</a></h3>
                                                         <div class="rating rateit-small"></div>
                                                         <div class="description"></div>
 
@@ -264,7 +264,7 @@
                                                                 </li>
 
                                                                 <li class="lnk wishlist">
-                                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                                    <a class="add-to-cart addwish"  data-id="{{$product->id}}" title="Wishlist">
                                                                         <i class="icon fa fa-heart"></i>
                                                                     </a>
                                                                 </li>
@@ -305,7 +305,7 @@
                                                     </div><!-- /.col -->
                                                     <div class="col col-sm-8 col-lg-8">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a href="detail.html">{{$product->product_name}}</a></h3>
+                                                            <h3 class="name"><a href="{{url('/product/'.$product->id)}}">{{$product->product_name}}</a></h3>
                                                             <div class="rating rateit-small"></div>
                                                             <div class="product-price">
                                                                 @if($product->discount_price)
@@ -337,7 +337,7 @@
                                                                         </li>
 
                                                                         <li class="lnk wishlist">
-                                                                            <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                                            <a class="add-to-cart addwish"  data-id="{{$product->id}}" title="Wishlist">
                                                                                 <i class="icon fa fa-heart"></i>
                                                                             </a>
                                                                         </li>

@@ -382,7 +382,7 @@
 
                                             <div class="col-sm-6">
                                                 <div class="favorite-button m-t-10">
-                                                    <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                    <a class="btn btn-primary addwish" data-id="{{$product->id}}" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
                                                         <i class="fa fa-heart"></i>
                                                     </a>
                                                     <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
@@ -646,7 +646,7 @@
                                                     </li>
 
                                                     <li class="lnk wishlist">
-                                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                        <a class="add-to-cart addwish"  data-id="{{$product->id}}" title="Wishlist">
                                                             <i class="icon fa fa-heart"></i>
                                                         </a>
                                                     </li>
