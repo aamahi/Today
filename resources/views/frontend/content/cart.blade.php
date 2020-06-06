@@ -30,9 +30,12 @@
                                 </tr>
                                 </tfoot>
                                 <tbody>
+                                @php
+                                    $sub_total = 0
+                                @endphp
                                 @foreach($carts as $cart)
                                     <tr>
-                                    <td class="romove-item"><a href="#" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
+                                    <td class="romove-item"><a href="{{route('remove_cart',$cart->id)}}" title="cancel" class="icon"><i class="fa fa-trash-o"></i></a></td>
                                     <td class="cart-image">
                                         <a class="entry-thumbnail" href="{{url('/product/'.($cart->product)->id)}}">
                                             <img src="{{asset('upload/product/'.($cart->product)->photo)}}" alt="">
@@ -68,9 +71,10 @@
                                             @if(($cart->product)->discount_price)
                                                     @php
                                                         $price = ($cart->product)->price;
-                                                        $discount_price = ($cart->product)->discount_price
+                                                        $discount_price = ($cart->product)->discount_price;
+                                                        $discount_amount = $price-(($price/100)*$discount_price);
                                                     @endphp
-                                                    ৳ {{$price-(($price/100)*$discount_price)}}
+                                                    ৳ {{$discount_amount}}
                                             @else
                                                     ৳ {{($cart->product)->price}}
                                             @endif
@@ -82,8 +86,14 @@
                                                     $discount_price = ($cart->product)->discount_price
                                                 @endphp
                                                 ৳ {{($price-(($price/100)*$discount_price))*$cart->qunt}}
+                                                @php
+                                                    $sub_total += ($price-(($price/100)*$discount_price))*$cart->qunt;
+                                                @endphp
                                             @else
                                                 ৳ {{(($cart->product)->price)*$cart->qunt}}
+                                                @php
+                                                    $sub_total += (($cart->product)->price)*$cart->qunt;
+                                                @endphp
                                             @endif
                                         </span></td>
                                 </tr>
@@ -170,10 +180,10 @@
                             <tr>
                                 <th>
                                     <div class="cart-sub-total">
-                                        Subtotal<span class="inner-left-md">$600.00</span>
+                                        Subtotal<span class="inner-left-md"> ৳ {{$sub_total}}</span>
                                     </div>
                                     <div class="cart-grand-total">
-                                        Grand Total<span class="inner-left-md">$600.00</span>
+                                        Grand Total<span class="inner-left-md"> ৳ {{$sub_total}}</span>
                                     </div>
                                 </th>
                             </tr>
@@ -192,205 +202,7 @@
                     </div><!-- /.cart-shopping-total -->			</div><!-- /.shopping-cart -->
             </div> <!-- /.row -->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <div id="brands-carousel" class="logo-slider wow fadeInUp">
-
-                <div class="logo-slider-inner">
-                    <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
-                        <div class="item m-t-15">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item m-t-10">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand3.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand6.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-                    </div><!-- /.owl-carousel #logo-slider -->
-                </div><!-- /.logo-slider-inner -->
-
-            </div><!-- /.logo-slider -->
+            @include('frontend.layout.frontend_brands')
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
     </div>
-    <div class="body-content">
-        <br/>
-        <div class="container">
-            <div class="my-wishlist-page">
-                <div class="row">
-                    <div class="col-md-12 my-wishlist">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th colspan="4" class="heading-title">My Wishlist</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($carts as $cart)
-                                    <tr>
-                                        <td class="col-md-2"><img src="{{asset('upload/product/'.($cart->product)->photo)}}" alt="imga"></td>
-                                        <td class="col-md-7">
-                                            <div class="product-name"><a href="{{url('/product/'.($cart->product)->id)}}">{{($cart->product)->product_name}}</a></div>
-                                            <div class="rating">
-                                                <i class="fa fa-star rate"></i>
-                                                <i class="fa fa-star rate"></i>
-                                                <i class="fa fa-star rate"></i>
-                                                <i class="fa fa-star rate"></i>
-                                                <i class="fa fa-star non-rate"></i>
-                                                <span class="review">( 06 Reviews )</span>
-                                            </div>
-                                            @if(($cart->product)->discount_price)
-                                                <div class="price">
-                                                    @php
-                                                        $price = ($cart->product)->price;
-                                                        $discount_price = ($cart->product)->discount_price
-                                                    @endphp
-                                                    ৳ {{$price-(($price/100)*$discount_price)}}
-                                                    <span>৳ {{($cart->product)->price}}</span>
-                                                </div>
-                                            @else
-                                                <div class="price">
-                                                    ৳ {{$cart->quantity}}
-                                                </div>
-                                            @endif
-                                        </td>
-                                        @if(($cart->product)->quantity>0)
-                                            <td class="col-md-2">
-                                                <a href="#" class="btn-upper btn btn-primary">Add to cart</a>
-                                            </td>
-                                        @elseif(($cart->product)->quantity==0)
-                                            <td class="col-md-2">
-                                                <a href="#" class="btn-upper btn btn-default">Add to cart</a>
-                                            </td>
-                                        @endif
-                                        <td class="col-md-1 close-btn">
-                                            <a href="" class="removewisht" data-id="{{$cart->id}}"><i class="fa fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            {{$carts->links()}}
-                        </div>
-                    </div>			</div><!-- /.row -->
-            </div><!-- /.sigin-in-->
-            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <div id="brands-carousel" class="logo-slider wow fadeInUp">
-
-                <div class="logo-slider-inner">
-                    <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
-                        <div class="item m-t-15">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item m-t-10">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand3.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand6.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-
-                        <div class="item">
-                            <a href="#" class="image">
-                                <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt="">
-                            </a>
-                        </div><!--/.item-->
-                    </div><!-- /.owl-carousel #logo-slider -->
-                </div><!-- /.logo-slider-inner -->
-
-            </div><!-- /.logo-slider -->
-            <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
-    </div><!-- /.body-content -->
 @endsection

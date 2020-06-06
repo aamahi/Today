@@ -79,7 +79,7 @@
 
                                         <ul class="dropdown-menu" role="menu" >
                                             @foreach($head_categories as $head_category)
-                                            <li class="menu-header" href="">- {{$head_category->head_category_name}}</li>
+                                                <li class="menu-header" href="">- {{$head_category->head_category_name}}</li>
                                             @endforeach
 
                                         </ul>
@@ -104,43 +104,62 @@
                                 <div class="basket">
                                     <i class="glyphicon glyphicon-shopping-cart"></i>
                                 </div>
-                                <div class="basket-item-count"><span class="count">2</span></div>
+                                <div class="basket-item-count"><span class="count">8</span></div>
                                 <div class="total-price-basket">
                                     <span class="lbl">cart -</span>
+                                    @php
+                                        $total = 0;
+                                    @endphp
                                     <span class="total-price">
-						<span class="sign">$</span><span class="value">600.00</span>
-					</span>
+                                        <span class="sign">৳</span>
+                                        <span class="value">{{$total}}</span>
+					                </span>
                                 </div>
-
-
                             </div>
                         </a>
-                        <ul class="dropdown-menu">
+                            <ul class="dropdown-menu">
                             <li>
                                 <div class="cart-item product-summary">
+                                    @foreach($carts as $cart)
                                     <div class="row">
-                                        <div class="col-xs-4">
+                                        <div class="col-xs-3">
                                             <div class="image">
-                                                <a href="detail.html"><img src="{{asset('frontend/assets/images/cart.jpg')}}" alt=""></a>
+                                                <a href="detail.html"><img src="{{asset('upload/product/'.($cart->product)->photo)}}" alt=""></a>
                                             </div>
                                         </div>
-                                        <div class="col-xs-7">
-
-                                            <h3 class="name"><a href="index8a95.html?page-detail">Simple Product</a></h3>
-                                            <div class="price">$600.00</div>
+                                        <div class="col-xs-8">
+                                            <h3 class="name"><a href="{{url('/product/'.($cart->product)->id)}}">{{($cart->product)->product_name}}</a></h3>
+                                            @php
+                                                $price = ($cart->product)->price;
+                                                $discount_price = ($cart->product)->discount_price;
+                                                $discount_amount = ($price-(($price/100)*$discount_price));
+                                                $tot = $discount_amount*$cart->qunt
+                                            @endphp
+                                            @if(($cart->product)->discount_price)
+                                                <div class="price">৳{{$discount_amount}}x{{$cart->qunt}}={{$tot}}</div>
+                                                @php
+                                                     $total = $total+$tot;
+                                                @endphp
+                                            @else
+                                                <div class="price">৳{{$price}}x{{$cart->qunt}}={{$price*$cart->qunt}}</div>
+                                                @php
+                                                    $total = $total+($price*$cart->qunt);
+                                                @endphp
+                                            @endif
                                         </div>
                                         <div class="col-xs-1 action">
-                                            <a href="#"><i class="fa fa-trash"></i></a>
+                                            <a href="{{route('remove_cart',$cart->id)}}"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </div>
-                                </div><!-- /.cart-item -->
-                                <div class="clearfix"></div>
-                                <hr>
+                                        <div class="clearfix"></div>
+                                        <hr>
+                                    @endforeach
+                                </div>
 
                                 <div class="clearfix cart-total">
                                     <div class="pull-right">
 
-                                        <span class="text">Sub Total :</span><span class='price'>$600.00</span>
+                                        <span class="text">Sub Total :</span><span class='price'>৳ {{$total}}</span>
 
                                     </div>
                                     <div class="clearfix"></div>
@@ -150,7 +169,7 @@
 
 
                             </li>
-                        </ul><!-- /.dropdown-menu-->
+                        </ul>
                     </div><!-- /.dropdown-cart -->
 
                     <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->				</div><!-- /.top-cart-row -->
