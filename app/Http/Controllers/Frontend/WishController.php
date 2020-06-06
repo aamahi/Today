@@ -44,7 +44,8 @@ class WishController extends Controller
     }
 
     public function wishlist(){
-        $wishlists = Wish::with('product')->select('id','product_id')->orderBy('id','desc')->paginate(5);
+        $user_id = Auth::user()->id;
+        $wishlists = Wish::with('product')->where('user_id',$user_id)->orWhere('ipaddress',\request()->ip())->select('id','product_id')->orderBy('id','desc')->paginate(5);
         $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
         return view('frontend.content.wishlist',compact('head_categories','wishlists'));
     }

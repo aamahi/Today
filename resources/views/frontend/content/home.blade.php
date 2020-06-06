@@ -1025,7 +1025,7 @@
                                                         <div class="action">
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
-                                                                    <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart">
+                                                                    <button data-toggle="tooltip" class="btn btn-primary icon addcart" data-id="{{$product->id}}" type="button" title="Add Cart">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </button>
 
@@ -1126,7 +1126,7 @@ d ="post" >--}}
                                                                         </li>
 
                                                                         <li class="lnk wishlist">
-                                                                            <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist">
+                                                                            <a data-id="{{$product->id}}" href="" data-toggle="tooltip" class="add-to-cart addwish"  title="Wishlist">
                                                                                 <i class="icon fa fa-heart"></i>
                                                                             </a>
                                                                         </li>

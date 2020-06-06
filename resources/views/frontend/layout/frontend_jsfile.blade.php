@@ -101,6 +101,34 @@
         })
     });
 </script>
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('.addcart').on('click',function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            if(id){
+                $.ajax({
+                    url:"{{url('/addcart/')}}/"+id,
+                    type:"GET",
+                    dataType:"json",
+                    success:function (data) {
+                        if($.isEmptyObject(data.error)){
+                            toastr.success(data.success)
+                        }else{
+                            toastr.error(data.error)
+                        }
+                    },
+                });
+            }
+        })
+    });
+</script>
 </body>
 
 </html>

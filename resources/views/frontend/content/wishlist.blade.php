@@ -18,7 +18,7 @@
                                     <tr>
                                         <td class="col-md-2"><img src="{{asset('upload/product/'.($wishlist->product)->photo)}}" alt="imga"></td>
                                         <td class="col-md-7">
-                                            <div class="product-name"><a href="#">{{($wishlist->product)->product_name}}</a></div>
+                                            <div class="product-name"><a href="{{url('/product/'.($wishlist->product)->id)}}">{{($wishlist->product)->product_name}}</a></div>
                                             <div class="rating">
                                                 <i class="fa fa-star rate"></i>
                                                 <i class="fa fa-star rate"></i>
