@@ -33,7 +33,7 @@
                                                         $price = ($wishlist->product)->price;
                                                         $discount_price = ($wishlist->product)->discount_price
                                                     @endphp
-                                                    ৳ {{(($price/100)*$discount_price)}}
+                                                    ৳ {{$price-(($price/100)*$discount_price)}}
                                                     <span>৳ {{($wishlist->product)->price}}</span>
                                                 </div>
                                             @else
@@ -52,12 +52,13 @@
                                             </td>
                                         @endif
                                         <td class="col-md-1 close-btn">
-                                            <a href="#" class=""><i class="fa fa-times"></i></a>
+                                            <a href="" class="removewisht" data-id="{{$wishlist->id}}"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{$wishlists->links()}}
                         </div>
                     </div>			</div><!-- /.row -->
             </div><!-- /.sigin-in-->

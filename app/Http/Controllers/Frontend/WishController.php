@@ -44,9 +44,20 @@ class WishController extends Controller
     }
 
     public function wishlist(){
-        $wishlists = Wish::with('product')->select('id','product_id')->get();
+        $wishlists = Wish::with('product')->select('id','product_id')->orderBy('id','desc')->paginate(5);
         $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
         return view('frontend.content.wishlist',compact('head_categories','wishlists'));
+    }
+    public function remove_wishlist($id){
+        Wish::findOrfail($id)->delete();
+        return response()->json([
+            'success'=>"Product Removed form wishlist "
+        ]);
+//        $notification = array(
+//            'message' => "Remove Product form wishlist",
+//            'alert-type' => 'warning'
+//        );
+//        return redirect()->back()->with($notification);
     }
 
 }
