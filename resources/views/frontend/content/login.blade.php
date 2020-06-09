@@ -21,8 +21,8 @@
                             <h4 class="">Sign in</h4>
                             <p class="">Hello, Welcome to your account.</p>
                             <div class="social-sign-in outer-top-xs">
-                                <a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
-                                <a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
+                                <a href="{{ route('social.oauth', 'facebook') }}" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
+                                <a href="#" class="twitter-sign-in"><i class="fa fa-google"></i> Sign In with Google</a>
                             </div>
                             <form class="register-form outer-top-xs" role="form" method="post" action="{{route('login')}}">
                                 @csrf
@@ -47,28 +47,34 @@
 
                         <!-- create a new account -->
                         <div class="col-md-6 col-sm-6 create-new-account">
+
                             <h4 class="checkout-subtitle">Create a new account</h4>
+
                             <p class="text title-tag-line">Create your new account.</p>
-                            <form class="register-form outer-top-xs" role="form">
+                            @foreach($errors->all() as $error)
+                                @if($error)
+                                    <P style="color: red">{{$error}}</P>
+                                @endif
+
+                            @endforeach
+                            <form class="register-form outer-top-xs" action="{{route('register')}}" method="post" role="form">
+                                @csrf
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail2">Email Address <span>*</span></label>
-                                    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail2" >
+                                    <input type="email" value="{{old('email')}}" class="form-control unicase-form-control text-input" name="email" id="exampleInputEmail2" required >
                                 </div>
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">Name <span>*</span></label>
-                                    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+                                    <input type="text" value="{{old('name')}}" class="form-control unicase-form-control text-input" name="name" id="exampleInputEmail1" required >
                                 </div>
-                                <div class="form-group">
-                                    <label class="info-title" for="exampleInputEmail1">Phone Number <span>*</span></label>
-                                    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
-                                </div>
+
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">Password <span>*</span></label>
-                                    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+                                    <input type="password" class="form-control unicase-form-control text-input" name="password" id="exampleInputEmail1" required >
                                 </div>
                                 <div class="form-group">
                                     <label class="info-title" for="exampleInputEmail1">Confirm Password <span>*</span></label>
-                                    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" >
+                                    <input type="password" class="form-control unicase-form-control text-input" name="password_confirmation" id="exampleInputEmail1" required >
                                 </div>
                                 <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
                             </form>
