@@ -43,9 +43,14 @@
                                             @endif
                                         </td>
                                         @if(($wishlist->product)->quantity>0)
+                                            <form action="{{route('wish_to_cart')}}" method="post">
+                                                @csrf
                                             <td class="col-md-2">
-                                                <a href="#" class="btn-upper btn btn-primary">Add to cart</a>
+                                                <input name="product_id" type="hidden" value="{{($wishlist->product)->id}}">
+                                                <input name="id" type="hidden" value="{{$wishlist->id}}">
+                                                <button type="submit" class="btn-upper btn btn-primary">Add to cart</button>
                                             </td>
+                                            </form>
                                         @elseif(($wishlist->product)->quantity==0)
                                             <td class="col-md-2">
                                                 <a href="#" class="btn-upper btn btn-default">Add to cart</a>

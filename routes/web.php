@@ -15,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('auth/social', 'Auth\LoginController@show')->name('social.login');
-Route::get('oauth/{driver}', 'Auth\LoginController@redirectToProvider')->name('social.oauth');
-Route::get('oauth/{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('social.callback');
-
+Route::get('/facebook/redirect', 'SocialAuthController@redirect');
+Route::get('/facebook/callback', 'SocialAuthController@callback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -47,6 +45,7 @@ Route::get('remove/cart/{id}', 'Frontend\CartController@remove_cart')->name('rem
 
 Route::get('/wishlist/', 'Frontend\WishController@wishlist')->name('wishlist')->middleware('auth');
 Route::get('remove/wishlist/{id}', 'Frontend\WishController@remove_wishlist')->name('remove_wishlist')->middleware('auth');
+Route::post('wish/to/cart', 'Frontend\WishController@wish_to_cart')->name('wish_to_cart')->middleware('auth');
 
 
 

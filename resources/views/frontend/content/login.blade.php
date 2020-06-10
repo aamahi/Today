@@ -21,7 +21,7 @@
                             <h4 class="">Sign in</h4>
                             <p class="">Hello, Welcome to your account.</p>
                             <div class="social-sign-in outer-top-xs">
-                                <a href="{{ route('social.oauth', 'facebook') }}" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
+                                <a href="{{url('/facebook/redirect')}}"  target="_blank" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
                                 <a href="#" class="twitter-sign-in"><i class="fa fa-google"></i> Sign In with Google</a>
                             </div>
                             <form class="register-form outer-top-xs" role="form" method="post" action="{{route('login')}}">

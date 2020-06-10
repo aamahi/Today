@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Model\Cart;
 use App\Model\Category\HeadCategory;
 use App\Model\Wish;
 use http\Env\Response;
@@ -45,9 +46,10 @@ class WishController extends Controller
 
     public function wishlist(){
         $user_id = Auth::user()->id;
+        $carts = Cart::with('product')->where('user_id',$user_id)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
         $wishlists = Wish::with('product')->where('user_id',$user_id)->orWhere('ipaddress',\request()->ip())->select('id','product_id')->orderBy('id','desc')->paginate(5);
         $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
-        return view('frontend.content.wishlist',compact('head_categories','wishlists'));
+        return view('frontend.content.wishlist',compact('head_categories','wishlists','carts'));
     }
     public function remove_wishlist($id){
         Wish::findOrfail($id)->delete();
@@ -59,6 +61,32 @@ class WishController extends Controller
 //            'alert-type' => 'warning'
 //        );
 //        return redirect()->back()->with($notification);
+    }
+
+    public function wish_to_cart(Request $request)
+    {
+        $user_id = Auth::user()->id;
+        $product_id =  $request->product_id;
+        $qunt = 1;
+        $wish_to_cart = [];
+        $wish_to_cart['user_id']= $user_id;
+        $wish_to_cart['product_id']= $product_id;
+        $wish_to_cart['qunt']= $qunt;
+        if(Cart::where('product_id',$request->product_id)->where('user_id',$user_id)->exists()){
+            Cart::where('product_id', $request->product_id)->where('user_id', $user_id)->increment('qunt', $qunt);
+        }else{
+            Cart::insert($wish_to_cart);
+        }
+
+        $wish_id =$request->id;
+        Wish::find($wish_id)->delete();
+        $notification = array(
+            'message' => "Product add in cart",
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+
+
     }
 
 }
