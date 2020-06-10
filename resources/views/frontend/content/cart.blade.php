@@ -17,18 +17,6 @@
                                     <th class="cart-total last-item">Grandtotal</th>
                                 </tr>
                                 </thead><!-- /thead -->
-                                <tfoot>
-                                <tr>
-                                    <td colspan="7">
-                                        <div class="shopping-cart-btn">
-                                        <span class="">
-                                            <a href="#" class="btn btn-upper btn-primary outer-left-xs">Continue Shopping</a>
-                                            <a href="#" class="btn btn-upper btn-primary pull-right outer-right-xs">Update shopping cart</a>
-                                        </span>
-                                        </div><!-- /.shopping-cart-btn -->
-                                    </td>
-                                </tr>
-                                </tfoot>
                                 <tbody>
                                 @php
                                     $sub_total = 0
@@ -101,54 +89,7 @@
                                 </tbody><!-- /tbody -->
                             </table><!-- /table -->
                         </div>
-                    </div><!-- /.shopping-cart-table -->				<div class="col-md-4 col-sm-12 estimate-ship-tax">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <span class="estimate-title">Estimate shipping and tax</span>
-                                    <p>Enter your destination to get shipping and tax.</p>
-                                </th>
-                            </tr>
-                            </thead><!-- /thead -->
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-group">
-                                        <label class="info-title control-label">Country <span>*</span></label>
-                                        <select class="form-control unicase-form-control selectpicker">
-                                            <option>--Select options--</option>
-                                            <option>India</option>
-                                            <option>SriLanka</option>
-                                            <option>united kingdom</option>
-                                            <option>saudi arabia</option>
-                                            <option>united arab emirates</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="info-title control-label">State/Province <span>*</span></label>
-                                        <select class="form-control unicase-form-control selectpicker">
-                                            <option>--Select options--</option>
-                                            <option>TamilNadu</option>
-                                            <option>Kerala</option>
-                                            <option>Andhra Pradesh</option>
-                                            <option>Karnataka</option>
-                                            <option>Madhya Pradesh</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="info-title control-label">Zip/Postal Code</label>
-                                        <input type="text" class="form-control unicase-form-control text-input" placeholder="">
-                                    </div>
-                                    <div class="pull-right">
-                                        <button type="submit" class="btn-upper btn btn-primary">GET A QOUTE</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div><!-- /.estimate-ship-tax -->
-
+                    </div><!-- /.shopping-cart-table -->
                     <div class="col-md-4 col-sm-12 estimate-ship-tax">
                         <table class="table">
                             <thead>
@@ -162,16 +103,21 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control unicase-form-control text-input" placeholder="You Coupon..">
-                                    </div>
-                                    <div class="clearfix pull-right">
-                                        <button type="submit" class="btn-upper btn btn-primary">APPLY COUPON</button>
-                                    </div>
+                                    <form action="{{route('cart')}}" method="post">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="text" name="cupon" class="form-control unicase-form-control text-input" placeholder="You Coupon..">
+                                        </div>
+                                        <div class="clearfix pull-right">
+                                            <button type="submit" class="btn-upper btn btn-primary">APPLY COUPON</button>
+                                        </div>
+                                    </form>
                                 </td>
                             </tr>
                             </tbody><!-- /tbody -->
                         </table><!-- /table -->
+                    </div><!-- /.estimate-ship-tax -->
+                    <div class="col-md-4 col-sm-12 estimate-ship-tax">
                     </div><!-- /.estimate-ship-tax -->
 
                     <div class="col-md-4 col-sm-12 cart-shopping-total">
@@ -179,12 +125,29 @@
                             <thead>
                             <tr>
                                 <th>
-                                    <div class="cart-sub-total">
-                                        Subtotal<span class="inner-left-md"> ৳ {{$sub_total}}</span>
-                                    </div>
-                                    <div class="cart-grand-total">
-                                        Grand Total<span class="inner-left-md"> ৳ {{$sub_total}}</span>
-                                    </div>
+                                    @isset($discount)
+                                        <div class="cart-sub-total">
+                                            Subtotal<span class="inner-left-md"> ৳ {{$sub_total}}</span>
+                                        </div>
+                                        <div class="cart-sub-total">
+                                            @php
+                                               $discount_amount = (($sub_total/100)*$discount);
+                                               $total =  $sub_total-$discount_amount;
+                                            @endphp
+                                            Discount ({{$discount}}%)<span class="inner-left-md"> ৳ {{$total}}</span>
+                                        </div>
+                                        <div class="cart-grand-total">
+                                            Grand Total<span class="inner-left-md"> ৳ {{$total}}</span>
+                                        </div>
+                                    @else
+                                        <div class="cart-sub-total">
+                                            Subtotal<span class="inner-left-md"> ৳ {{$sub_total}}</span>
+                                        </div>
+                                        <div class="cart-grand-total">
+                                            Grand Total<span class="inner-left-md"> ৳ {{$sub_total}}</span>
+                                        </div>
+                                    @endisset
+
                                 </th>
                             </tr>
                             </thead><!-- /thead -->

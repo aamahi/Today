@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Model\Brand;
 use App\Model\Cart;
 use App\Model\Category\HeadCategory;
+use App\Model\Cupon;
 use App\Model\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -46,12 +48,39 @@ class CartController extends Controller
             ]);
         }
     }
-    public function cart(){
-        $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
-        $user_id = Auth::user()->id;
-        $carts = Cart::with('product')->where('user_id',$user_id)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
-        $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
-        return view('frontend.content.cart',compact('head_categories','carts','brands'));
+    public function cart(Request $request){
+        $cupon = $request->cupon;
+        if($cupon){
+            if(Cupon::where('cupon_name',$cupon)->exists()){
+                if (Cupon::where('cupon_name',$cupon)->first()->expaire_date>=Carbon::now()->format('Y-m-d')){
+                    $discount = Cupon::where('cupon_name',$cupon)->first()->discount;
+                    $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
+                    $user_id = Auth::user()->id;
+                    $carts = Cart::with('product')->where('user_id',$user_id)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
+                    $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
+                    return view('frontend.content.cart',compact('head_categories','carts','brands','discount'));
+                }else{
+                    $notification = array(
+                        'message' => "Expaire Cupon",
+                        'alert-type' => 'error'
+                    );
+                    return redirect()->back()->with($notification);
+                }
+            }else{
+                $notification = array(
+                    'message' => "Invalid Cupon",
+                    'alert-type' => 'error'
+                );
+                return redirect()->back()->with($notification);
+
+            }
+        }else{
+            $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
+            $user_id = Auth::user()->id;
+            $carts = Cart::with('product')->where('user_id',$user_id)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
+            $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
+            return view('frontend.content.cart',compact('head_categories','carts','brands'));
+        }
     }
 
     public function add_cart_p(Request $request){
