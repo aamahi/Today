@@ -47,7 +47,7 @@ Route::get('remove/cart/{id}', 'Frontend\CartController@remove_cart')->name('rem
 Route::get('/wishlist/', 'Frontend\WishController@wishlist')->name('wishlist')->middleware('auth');
 Route::get('remove/wishlist/{id}', 'Frontend\WishController@remove_wishlist')->name('remove_wishlist')->middleware('auth');
 Route::post('wish/to/cart', 'Frontend\WishController@wish_to_cart')->name('wish_to_cart')->middleware('auth');
-
+Route::post('/checkout','CheckoutController@index')->name('checkout');
 //Route::post('/cupon','Frontend\CartController@cart')->name('cupon');
 
 

@@ -154,10 +154,13 @@
                             <tbody>
                             <tr>
                                 <td>
-                                    <div class="cart-checkout-btn pull-right">
-                                        <button type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
-                                        <span class="">Checkout with multiples address!</span>
-                                    </div>
+                                    <form action="{{route('checkout')}}" method="post">
+                                        @csrf
+                                        <div class="cart-checkout-btn pull-right">
+                                            <button type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
+                                            <span class="">Checkout with multiples address!</span>
+                                        </div>
+                                    </form>
                                 </td>
                             </tr>
                             </tbody><!-- /tbody -->
