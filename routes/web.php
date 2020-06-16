@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/facebook/redirect', 'SocialAuthController@redirect');
-Route::get('/facebook/callback', 'SocialAuthController@callback');
+Route::get('facebook', function () {
+    return view('facebook');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -38,15 +39,19 @@ Route::get('product/{id}', 'Frontend\CategoryController@view_product');
 Route::get('today', 'Frontend\CategoryController@today')->name('today');
 Route::get('/add/wishlist/{id}', 'Frontend\WishController@add_wish');
 
+//CArt
 Route::get('/addcart/{id}', 'Frontend\CartController@add_cart');
+
+
 Route::post('/addcart/', 'Frontend\CartController@add_cart_p')->name('add_cart');
 Route::get('/cart/', 'Frontend\CartController@cart')->name('cart')->middleware('auth');
 Route::post('/cart/', 'Frontend\CartController@cart')->middleware('auth');
 Route::get('remove/cart/{id}', 'Frontend\CartController@remove_cart')->name('remove_cart')->middleware('auth');
+Route::post('wish/to/cart', 'Frontend\WishController@wish_to_cart')->name('wish_to_cart')->middleware('auth');
 
+// End CArt
 Route::get('/wishlist/', 'Frontend\WishController@wishlist')->name('wishlist')->middleware('auth');
 Route::get('remove/wishlist/{id}', 'Frontend\WishController@remove_wishlist')->name('remove_wishlist')->middleware('auth');
-Route::post('wish/to/cart', 'Frontend\WishController@wish_to_cart')->name('wish_to_cart')->middleware('auth');
 Route::post('/checkout','CheckoutController@index')->name('checkout');
 //Route::post('/cupon','Frontend\CartController@cart')->name('cupon');
 

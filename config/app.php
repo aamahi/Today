@@ -165,6 +165,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
 
 
+
         /*
          * Package Service Providers...
          */
@@ -231,6 +232,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
 
     ],
 

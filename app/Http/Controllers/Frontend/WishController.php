@@ -65,7 +65,7 @@ class WishController extends Controller
 
     public function wish_to_cart(Request $request)
     {
-        $user_id = Auth::user()->id;
+        $user_id = \request()->ip();
         $product_id =  $request->product_id;
         $qunt = 1;
         $wish_to_cart = [];
