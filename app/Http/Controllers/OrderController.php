@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
+use App\Model\Cart;
 use App\Model\Order;
+use App\Model\OrderList;
+use App\Model\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,10 +34,22 @@ class OrderController extends Controller
         $order['total'] = $request->total;
         $order['created_at'] = Carbon::now();
         $orderId = Order::insertGetId($order);
+
+        foreach (Cart::where('ip_address', request()->ip())->get() as $cart) {
+            OrderList::insert([
+                'user_id' => Auth::user()->id,
+                'order_id' => $orderId,
+                'product_id' => $cart->product_id,
+                'qunt' => $cart->qunt,
+            ]);
+            // Delete Form Cart
+            Product::find($cart->product_id)->decrement('quantity', $cart->qunt);
+            Cart::find($cart->id)->delete();
+        }
         $notification = array(
-            'message' => "Order Done !",
+            'message' => "Thank you ! Order Done",
             'alert-type' => 'info'
         );
-        return redirect()->back()->with($notification);
+        return redirect()->route('frontend_home')->with($notification);
     }
 }
