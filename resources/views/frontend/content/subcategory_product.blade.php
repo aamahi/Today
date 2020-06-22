@@ -260,7 +260,7 @@
                                                                     <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </button>
-                                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                    <button class="btn btn-primary cart-btn addcart" type="button">Add to cart</button>
 
                                                                 </li>
 
@@ -271,7 +271,7 @@
                                                                 </li>
 
                                                                 <li class="lnk">
-                                                                    <a class="add-to-cart" href="detail.html" title="Compare">
+                                                                    <a class="add-to-cart addcart" href="" title="Compare">
                                                                         <i class="fa fa-signal"></i>
                                                                     </a>
                                                                 </li>
@@ -330,10 +330,10 @@
                                                                 <div class="action">
                                                                     <ul class="list-unstyled">
                                                                         <li class="add-cart-button btn-group">
-                                                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                                            <button class="btn btn-primary icon addcart" data-toggle="dropdown" type="button">
                                                                                 <i class="fa fa-shopping-cart"></i>
                                                                             </button>
-                                                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                            <button class="btn btn-primary cart-btn addcart" type="button">Add to cart fff</button>
 
                                                                         </li>
 
@@ -344,7 +344,7 @@
                                                                         </li>
 
                                                                         <li class="lnk">
-                                                                            <a class="add-to-cart" href="detail.html" title="Compare">
+                                                                            <a class="add-to-cart" title="Compare">
                                                                                 <i class="fa fa-signal"></i>
                                                                             </a>
                                                                         </li>

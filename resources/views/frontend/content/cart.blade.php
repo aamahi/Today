@@ -144,6 +144,9 @@
                                             Subtotal<span class="inner-left-md"> ৳ {{$sub_total}}</span>
                                         </div>
                                         <div class="cart-grand-total">
+                                            @php
+                                            $total = $sub_total;
+                                            @endphp
                                             Grand Total<span class="inner-left-md"> ৳ {{$sub_total}}</span>
                                         </div>
                                     @endisset
@@ -157,6 +160,7 @@
                                     <form action="{{route('checkout')}}" method="post">
                                         @csrf
                                         <div class="cart-checkout-btn pull-right">
+                                            <input type="hidden" name="sub_total" value="{{$total}}">
                                             <button type="submit" class="btn btn-primary checkout-btn">PROCCED TO CHEKOUT</button>
                                             <span class="">Checkout with multiples address!</span>
                                         </div>

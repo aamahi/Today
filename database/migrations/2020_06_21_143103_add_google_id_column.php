@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSocialLoginsTable extends Migration
+class AddGoogleIdColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateSocialLoginsTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_logins', function (Blueprint $table) {
-            $table->integer('user_id');
-            $table->string('provider_user_id');
-            $table->string('provider');
-            $table->timestamps();
+        Schema::table('users', function ($table) {
+            $table->string('google_id')->nullable();
         });
     }
 
@@ -28,6 +25,6 @@ class CreateSocialLoginsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_logins');
+        //
     }
 }

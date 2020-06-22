@@ -30,14 +30,18 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
     'facebook' => [
-        'client_id' => env('FACEBOOK_CLIENT_ID'),
-        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => env('FACEBOOK_CALLBACK_URL'),
+        'client_id' =>'195340838458626',
+        'client_secret' =>'d5e5c9f47c2342215d6c9c1a89d4f529',
+        'redirect' => 'http://localhost:8000/auth/facebook/callback',
     ],
+//    'google' => [
+//        'client_id'     => env('GL_ID'),
+//        'client_secret' => env('GL_SECRET'),
+//        'redirect'      => env('APP_URL') . '/oauth/google/callback',
+//    ],
     'google' => [
-        'client_id'     => env('GL_ID'),
-        'client_secret' => env('GL_SECRET'),
-        'redirect'      => env('APP_URL') . '/oauth/google/callback',
+        'client_id' => '868315344470-obv1r8t9srd6hq4ao713hags4qh73flt.apps.googleusercontent.com',
+        'client_secret' => 'VgWb6dFZJ1MNEadbcDmi6-Om',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
     ],
-
 ];

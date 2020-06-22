@@ -1006,9 +1006,10 @@
                                                             @if($product->discount_price)
                                                                 <div class="product-price">
                                                                     <span class="price">
-                                                                        ৳ {{$product->price-(($product->price/100)*$product->discount_price)}}
+                                                                       ৳ {{$product->price-(($product->price/100)*$product->discount_price)}}
                                                                     </span>
-                                                                        <span class="price-before-discount">৳ {{$product->price}}</span>
+                                                                    <span class="price-before-discount">৳ {{$product->price}}</span>
+
                                                                 </div>
                                                             @else
                                                             <div class="product-price">

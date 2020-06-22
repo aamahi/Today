@@ -45,8 +45,9 @@ class WishController extends Controller
     }
 
     public function wishlist(){
+        $ip_address = \request()->ip();
         $user_id = Auth::user()->id;
-        $carts = Cart::with('product')->where('user_id',$user_id)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
+        $carts = Cart::with('product')->where('ip_address',$ip_address)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
         $wishlists = Wish::with('product')->where('user_id',$user_id)->orWhere('ipaddress',\request()->ip())->select('id','product_id')->orderBy('id','desc')->paginate(5);
         $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
         return view('frontend.content.wishlist',compact('head_categories','wishlists','carts'));
@@ -65,15 +66,15 @@ class WishController extends Controller
 
     public function wish_to_cart(Request $request)
     {
-        $user_id = \request()->ip();
+        $ip_address = \request()->ip();
         $product_id =  $request->product_id;
         $qunt = 1;
         $wish_to_cart = [];
-        $wish_to_cart['user_id']= $user_id;
+        $wish_to_cart['ip_address']=  $ip_address;
         $wish_to_cart['product_id']= $product_id;
         $wish_to_cart['qunt']= $qunt;
-        if(Cart::where('product_id',$request->product_id)->where('user_id',$user_id)->exists()){
-            Cart::where('product_id', $request->product_id)->where('user_id', $user_id)->increment('qunt', $qunt);
+        if(Cart::where('product_id',$request->product_id)->where('ip_address',$ip_address)->exists()){
+            Cart::where('product_id', $request->product_id)->where('ip_address', $ip_address)->increment('qunt', $qunt);
         }else{
             Cart::insert($wish_to_cart);
         }
