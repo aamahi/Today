@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="col-md-2 col-sm-2 already-registered-login">
                                             <div class="col-md-6">
-                                                <input type="radio" name="payment" value="0" class="form-control unicase-form-control text-input" >
+                                                <input type="radio" name="payment" value="1" class="form-control unicase-form-control text-input" >
                                             </div>
                                             <div class="col-md-6">
                                                 <img  width="40" src="{{asset('frontend/assets/cash.png')}}" alt="BKSH">
