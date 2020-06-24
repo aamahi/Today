@@ -113,6 +113,10 @@ Route::prefix('admin')->group(function () {
     Route::post('/cupon','Admin\CuponController@add_cupon');
     Route::get('/cupon/{id}','Admin\CuponController@delete_cupon')->name('delete_cupon');
 
+    // Testimonial
+    Route::get('/testimonial','Admin\TestemonialController@index')->name('admin.testimonial');
+    Route::post('/testimonial','Admin\TestemonialController@add_testimonial');
+
     // Product
 
     Route::get('all/product','Admin\ProductController@product_show')->name('admin.product_show');

@@ -57,7 +57,12 @@
                     <span>Cupon</span>
                 </a>
             </li>
-
+            <li>
+                <a class="@yield('testimonial')" href="{{route('admin.testimonial')}}">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <span>Testimonial</span>
+                </a>
+            </li>
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-laptop"></i>
