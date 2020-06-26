@@ -83,10 +83,10 @@
                                             <input type="checkbox" name="special_offer" class="custom-control-input" value="1" id="special_offer">
                                             <label class="custom-control-label" for="special_offer" > Special Offer </label>
                                         </div>
-                                        <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" name="hot_deal"  class="custom-control-input" value="1" id="hot_deal">
-                                            <label class="custom-control-label" for="hot_deal"> Hot Deal </label>
-                                        </div>
+{{--                                        <div class="custom-control custom-checkbox mb-3">--}}
+{{--                                            <input type="checkbox" name="hot_deal"  class="custom-control-input" value="1" id="hot_deal">--}}
+{{--                                            <label class="custom-control-label" for="hot_deal"> Hot Deal </label>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                                 <hr>

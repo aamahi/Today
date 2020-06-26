@@ -8,6 +8,12 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            <li>
+                <a class="@yield('order')" href="{{route('admin.order')}}">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Order</span>
+                </a>
+            </li>
             <li class="sub-menu">
                 <a  class="@yield('category')" href="javascript:;" >
                     <i class="fa fa-tags"></i>
@@ -30,6 +36,7 @@
                     <li><a  href="{{route('show_deleted_product')}}">Deleted Product</a></li>
                 </ul>
             </li>
+
             <li class="sub-menu">
                 <a  class="@yield('brand')" href="javascript:;" >
                     <i class="fa fa-bars"></i>

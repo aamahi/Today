@@ -132,5 +132,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/show_deleted_product/','Admin\ProductController@show_deleted_product')->name('show_deleted_product');
     Route::get('/restore_deleted_product/{id}','Admin\ProductController@restore_deleted_product')->name('restore_deleted_product');
     Route::get('/delete_deleted_product/{id}','Admin\ProductController@delete_deleted_product')->name('delete_deleted_product');
+
+    //Order System
+    Route::get('/order','Admin\AdminOrderController@allOrder')->name('admin.order');
 });
 
