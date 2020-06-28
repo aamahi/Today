@@ -135,5 +135,11 @@ Route::prefix('admin')->group(function () {
 
     //Order System
     Route::get('/order','Admin\AdminOrderController@allOrder')->name('admin.order');
+
+
+    //HOt
+    Route::get('/hot','Admin\HotController@add_hot')->name('admin.add_hot');
+
+
 });
 

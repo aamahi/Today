@@ -36,6 +36,17 @@
                     <li><a  href="{{route('show_deleted_product')}}">Deleted Product</a></li>
                 </ul>
             </li>
+            <li class="sub-menu">
+                <a  class="@yield('hot')" href="javascript:;" >
+                    <i class="fa fa-shopping-cart"></i>
+                    <span>Hot deal</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="{{route('admin.add_hot')}}">Add Hot Product</a></li>
+                    <li><a  href="{{route('admin.product')}}">Hot deal product </a></li>
+                    <li><a  href="{{route('show_deleted_product')}}">Deleted Product</a></li>
+                </ul>
+            </li>
 
             <li class="sub-menu">
                 <a  class="@yield('brand')" href="javascript:;" >
