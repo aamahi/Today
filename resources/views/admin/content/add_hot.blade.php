@@ -51,7 +51,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-sm-2 control-label">Product Name</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" name="product_name" type="text" placeholder="Product Name" value="{{old('product_name')}}">
+                                        <select class="form-control" name="product_name">
+                                            <option>-- Add Product --</option>
+                                        </select>
+{{--                                        <select class="form-control" name="product_name" type="text" placeholder="Product Name" value="{{old('product_name')}}">--}}
                                     </div>
                                 </div>
                                 <div class="form-group row">

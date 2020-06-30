@@ -139,7 +139,7 @@ Route::prefix('admin')->group(function () {
 
     //HOt
     Route::get('/hot','Admin\HotController@add_hot')->name('admin.add_hot');
-
+    Route::get('/get_products/{id}','Admin\HotController@product');
 
 });
 

@@ -127,6 +127,39 @@
         });
     });
 </script>
+
+{{--//hot deal dropdown --}}
+<script type="text/javascript">
+    jQuery(document).ready(function ()
+    {
+        jQuery('select[name="category"]').on('change',function(){
+            var category_id = jQuery(this).val();
+            if(category_id)
+            {
+                // console.log(category_id)
+                jQuery.ajax({
+                    url : 'get_products/' +category_id,
+                    type : "GET",
+                    dataType : "json",
+                    success:function(data)
+                    {
+                        console.log(data);
+                        jQuery('select[name="product_name"]').empty();
+                        jQuery.each(data, function(key,value){
+                            $('select[name="product_name"]').append('<option value="'+ key +'">'+key+' ) '+value +'</option>');
+                        });
+                    }
+                });
+            }
+            else
+            {
+                $('select[name="product_name"]').empty();
+            }
+        });
+    });
+</script>
+{{--end hotdeal drop down --}}
+
 <script>
     $(document).ready(function() {
         $('#example').DataTable();
