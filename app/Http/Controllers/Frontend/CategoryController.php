@@ -10,6 +10,7 @@ use App\Model\Category\HeadCategory;
 use App\Model\Category\SubCategory;
 use App\Model\Product;
 use App\Model\Product_photo;
+use App\Model\Testemonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,7 +38,7 @@ class CategoryController extends Controller
             return view('frontend.content.subcategory_product',compact('web_banner','head_categories','brands','products','carts'));
     }
     public function view_product($id){
-            $ip_address = \request()->ip();;
+            $ip_address = \request()->ip();
             $carts = Cart::with('product')->where('ip_address',$ip_address)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
             $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
             $product = Product::find($id);
@@ -47,11 +48,14 @@ class CategoryController extends Controller
             return view('frontend.content.product_view',compact('product','product_photo','head_categories','related_product','carts'));
 
     }
-    public function today(){
+    public function hot(){
+        $testemonials = Testemonial::all();
+        $ip_address = \request()->ip();
 //        $web_banner = HeadCategory::where('id',$head_category_id)->first();
-        $products = Product::where('today_offer',1)->paginate(6);
+        $carts = Cart::with('product')->where('ip_address',$ip_address)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
+        $products = Product::where('hot_deal',1)->paginate(6);
         $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
         $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
-        return view('frontend.content.today',compact('head_categories','brands','products'));
+        return view('frontend.content.today',compact('head_categories','brands','products','carts','testemonials'));
     }
 }

@@ -39,7 +39,7 @@ Route::get('/', 'Frontend\Index@home')->name('frontend_home');
 Route::get('category/{id}', 'Frontend\CategoryController@index');
 Route::get('subcategory/{id}', 'Frontend\CategoryController@subcategory_product');
 Route::get('product/{id}', 'Frontend\CategoryController@view_product');
-Route::get('today', 'Frontend\CategoryController@today')->name('today');
+Route::get('hotdeal', 'Frontend\CategoryController@hot')->name('today');
 Route::get('/add/wishlist/{id}', 'Frontend\WishController@add_wish');
 
 //CArt
@@ -138,9 +138,9 @@ Route::prefix('admin')->group(function () {
 
 
     //HOt
-    Route::get('/add/hot','Admin\HotController@add_hot')->name('admin.add_hot');
-    Route::post('/add/hot','Admin\HotController@add_hot_P');
-    Route::get('/hot','Admin\HotController@hot')->name('admin.hot');
+    Route::get('/hot','Admin\HotController@add_hot')->name('admin.add_hot');
+    Route::post('/hot','Admin\HotController@add_hot_P');
+    Route::get('all/hot','Admin\HotController@hot')->name('admin.hot');
     Route::get('/remove/hot/{id}','Admin\HotController@remove_hot')->name('remove_hot');
     Route::get('/get_products/{id}','Admin\HotController@product');
 

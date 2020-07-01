@@ -15,13 +15,11 @@ class OrderController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:admin');
+        $this->middleware('auth');
     }
 
 
     public function add_order(OrderRequest $request){
-//        return$request->all();
-//        die();
         if($request->payment ==1){
             $order =[];
             $order['user_id'] = Auth::user()->id;
@@ -51,7 +49,7 @@ class OrderController extends Controller
                 'message' => "Thank you ! Order Done",
                 'alert-type' => 'info'
             );
-            return redirect()->route('frontend_home')->with($notification);
+//            return redirect()->route('frontend_home')->with($notification);
         }else{
             $total = $request->sub_total;
             return view('stripe',compact('total'));

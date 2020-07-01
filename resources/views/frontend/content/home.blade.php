@@ -1514,7 +1514,7 @@ d ="post" >--}}
                     <section class="section wow fadeInUp new-arriavls">
                         <h3 class="section-title">TODAY OFFER</h3>
                         <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
-                            @foreach($today_offers as $product)
+                            @foreach($hot_deals as $product)
                                 <div class="item item-carousel">
                                     <div class="products">
 
@@ -1524,7 +1524,7 @@ d ="post" >--}}
                                                     <a href="{{url('/product/'.$product->id)}}"><img  src="{{asset('upload/product/'.$product->photo)}}" alt=""></a>
                                                 </div><!-- /.image -->
 
-                                                <div class="tag hot"><span> Today </span></div>
+                                                <div class="tag sale"><span> - {{$product->discount_price}}%</span></div>
                                             </div><!-- /.product-image -->
 
 
@@ -1548,8 +1548,7 @@ d ="post" >--}}
                                                             <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
                                                                 <i class="fa fa-shopping-cart"></i>
                                                             </button>
-                                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-
+                                                            <button class="btn btn-primary cart-btn addcart"  data-id="{{$product->id}}"type="button">Add to cart</button>
                                                         </li>
 
                                                         <li class="lnk wishlist">
@@ -1559,7 +1558,7 @@ d ="post" >--}}
                                                         </li>
 
                                                         <li class="lnk">
-                                                            <a class="add-to-cart" href="detail.html" title="Compare">
+                                                            <a class="add-to-cart" href="" title="Compare">
                                                                 <i class="fa fa-signal" aria-hidden="true"></i>
                                                             </a>
                                                         </li>
