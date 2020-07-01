@@ -138,7 +138,10 @@ Route::prefix('admin')->group(function () {
 
 
     //HOt
-    Route::get('/hot','Admin\HotController@add_hot')->name('admin.add_hot');
+    Route::get('/add/hot','Admin\HotController@add_hot')->name('admin.add_hot');
+    Route::post('/add/hot','Admin\HotController@add_hot_P');
+    Route::get('/hot','Admin\HotController@hot')->name('admin.hot');
+    Route::get('/remove/hot/{id}','Admin\HotController@remove_hot')->name('remove_hot');
     Route::get('/get_products/{id}','Admin\HotController@product');
 
 });

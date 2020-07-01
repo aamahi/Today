@@ -43,8 +43,7 @@
                 </a>
                 <ul class="sub">
                     <li><a  href="{{route('admin.add_hot')}}">Add Hot Product</a></li>
-                    <li><a  href="{{route('admin.product')}}">Hot deal product </a></li>
-                    <li><a  href="{{route('show_deleted_product')}}">Deleted Product</a></li>
+                    <li><a  href="{{route('admin.hot')}}">Hot deal product </a></li>
                 </ul>
             </li>
 

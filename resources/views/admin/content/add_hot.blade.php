@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <section class="card">
                         <header class="card-header text-center">
-                            Add Product
+                            Add Hot Deal Product
                         </header>
                         <div class="card-body">
                             @if($errors->any())
@@ -22,7 +22,7 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <form method="post" action="{{route('admin.product')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('admin.add_hot')}}">
                                 @csrf
                                 <div class="form-row align-items-center">
                                     <div class="col-md-4">
@@ -47,71 +47,22 @@
                                         </select>
                                     </div>
                                 </div>
-                                <hr >
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-sm-2 control-label">Product Name</label>
-                                    <div class="col-sm-10">
+                                <hr/>
+                                <div class="form-row align-items-center">
+                                    <div class="col-md-8">
+                                        <label>Select Product</label>
                                         <select class="form-control" name="product_name">
                                             <option>-- Add Product --</option>
                                         </select>
-{{--                                        <select class="form-control" name="product_name" type="text" placeholder="Product Name" value="{{old('product_name')}}">--}}
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-sm-2 control-label">Decription</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" name="details">Product Decription...</textarea>
-                                    </div>
-                                </div>
-                                <hr >
-                                <div class="form-row align-items-center">
-                                    <div class="col-md-3">
-                                        <label>Price</label>
-                                        <input type="number" class="form-control mb-4" name="price" placeholder="Price"  value="{{old('price')}}">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label>Discount Price</label>
-                                        <input type="number" class="form-control mb-4" name="discount_price" placeholder="Discount Percentage (%)"  value="{{old('discount_price')}}">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label>Quantity</label>
-                                        <input type="number" class="form-control mb-4" name="quantity" placeholder="Product Quantity"  value="{{old('quantity')}}">
-                                    </div>
-                                    <div class="col-md-3 float-left">
-                                        <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" name="today_offer" value="1" class="custom-control-input" id="today_offer" >
-                                            <label class="custom-control-label" for="today_offer"> Today Offer </label>
-                                        </div>
-                                        <div class="custom-control custom-checkbox mb-3">
-                                            <input type="checkbox" name="special_offer" class="custom-control-input" value="1" id="special_offer">
-                                            <label class="custom-control-label" for="special_offer" > Special Offer </label>
-                                        </div>
-{{--                                        <div class="custom-control custom-checkbox mb-3">--}}
-{{--                                            <input type="checkbox" name="hot_deal"  class="custom-control-input" value="1" id="hot_deal">--}}
-{{--                                            <label class="custom-control-label" for="hot_deal"> Hot Deal </label>--}}
-{{--                                        </div>--}}
+                                    <div class="col-md-4">
+                                        <label>Discount Amount(%) </label>
+                                        Add Product
+                                        <input type="number" class="form-control" name="discount_price" placeholder="Discount Percentage (%)"  value="{{old('discount_price')}}">
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label for="inputEmail3" class="col-sm-4 col-form-label">Product Image</label>
-                                            <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="inputEmail3" name="photo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group row">
-                                            <label for="multipleImage" class="col-sm-4 col-form-label">Multiple Product Image</label>
-                                            <div class="col-sm-8">
-                                                <input type="file" class="form-control" id="multipleImage" name="multiple_image[]" multiple >
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary"> Add Product </button>
+                                <button type="submit" class="btn btn-primary"> Add Hot deal </button>
                             </form>
 
                         </div>
