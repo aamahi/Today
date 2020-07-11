@@ -6,7 +6,7 @@
                 <div class='col-md-3 sidebar'>
                     <div class="sidebar-module-container">
                         <div class="home-banner outer-top-n">
-                            <img src="assets/images/banners/LHS-banner.jpg" alt="Image">
+                            <img src="assets/images/banners/LHS-banner.jpgassets/images/banners/LHS-banner.jpg" alt="Image">
                         </div>
 
 
@@ -382,15 +382,16 @@
 
                                             <div class="col-sm-6">
                                                 <div class="favorite-button m-t-10">
-                                                    <a class="btn btn-primary addwish" data-id="{{$product->id}}" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
-                                                        <i class="fa fa-heart"></i>
-                                                    </a>
-                                                    <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
-                                                        <i class="fa fa-signal"></i>
-                                                    </a>
-                                                    <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="E-mail" href="#">
-                                                        <i class="fa fa-envelope"></i>
-                                                    </a>
+                                                    <div class="col-md-3">
+                                                        <a class="btn btn-primary addwish" data-id="{{$product->id}}" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
+                                                            <i class="fa fa-heart"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                                        <div class="addthis_inline_share_toolbox_xa00"></div>
+                                                    </div>
+
                                                 </div>
                                             </div>
 

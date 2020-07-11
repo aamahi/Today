@@ -59,7 +59,7 @@
                     <!-- ============================================================= LOGO ============================================================= -->
                     <div class="logo">
                         <a href="{{url('/')}}">
-                            <img src="{{asset('frontend/assets/images/logo.png')}}" width="200" alt="">
+                            <img src="{{asset('frontend/assets/images/logo.jpg')}}" width="200" alt="">
 {{--                            <a href="{{route('admin.home')}}" class="logo">To<span>day</span></a>--}}
                         </a>
                     </div><!-- /.logo -->
@@ -85,11 +85,12 @@
                                         </ul>
                                     </li>
                                 </ul>
+                                <form action="{{url('/hi')}}"    me>
 
                                 <input class="search-field" placeholder="Search here..." />
+                                <button type="submit" class="search-button"></button>
 
-                                <a class="search-button" href="#" ></a>
-
+                                </form>
                             </div>
                         </form>
                     </div><!-- /.search-area -->

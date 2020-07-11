@@ -1,4 +1,6 @@
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f0491c35d5e89ea"></script>
 
 <!-- For demo purposes – can be removed on production -->
 

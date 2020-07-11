@@ -1512,7 +1512,7 @@ d ="post" >--}}
 
                     <!-- ============================================== FEATURED PRODUCTS ============================================== -->
                     <section class="section wow fadeInUp new-arriavls">
-                        <h3 class="section-title">TODAY OFFER</h3>
+                        <h3 class="section-title">HOT DEAL</h3>
                         <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
                             @foreach($hot_deals as $product)
                                 <div class="item item-carousel">
