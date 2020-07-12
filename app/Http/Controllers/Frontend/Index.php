@@ -28,4 +28,19 @@ class Index extends Controller
             return view("frontend.content.home",compact('brands','head_categories','banners','products','special_offers','today_offers','carts','testemonials','hot_deals'));
     }
 
+    public function search(Request $request){
+        $this->validate($request,[
+            'search'=>'required'
+        ]);
+        $search = $request->search;
+
+        $hot_deals = Product::select('id','product_name','photo','price','discount_price')->orderBy('id','DESC')->where('hot_deal',1)->get();
+        $testemonials = Testemonial::all();
+        $ip_address = request()->ip();
+        $carts = Cart::with('product')->where('ip_address',$ip_address)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
+        $products = Product::where('product_name','LIKE',"%{$search}%")->paginate(15);
+        $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
+        $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
+        return view('frontend.content.search',compact('head_categories','brands','products','carts','testemonials','hot_deals'));
+    }
 }

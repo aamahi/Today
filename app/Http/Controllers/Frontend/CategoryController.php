@@ -38,6 +38,8 @@ class CategoryController extends Controller
             return view('frontend.content.subcategory_product',compact('web_banner','head_categories','brands','products','carts'));
     }
     public function view_product($id){
+            $testemonials = Testemonial::all();
+            $hot_deals = Product::select('id','product_name','photo','price','discount_price')->orderBy('id','DESC')->where('hot_deal',1)->get();
             $ip_address = \request()->ip();
             $carts = Cart::with('product')->where('ip_address',$ip_address)->select('id','product_id','qunt')->orderBy('id','desc')->paginate(5);
             $head_categories = HeadCategory::with('sub_categories')->select('id','head_category_name','category_icon','category_banner')->get();
@@ -45,7 +47,7 @@ class CategoryController extends Controller
             $product_photo = Product_photo::where('product_id',$id)->get();
             $category_id = Product::find($id)->category_id;
             $related_product = Product::where('category_id',$category_id)->where('id','!=',$id)->get();
-            return view('frontend.content.product_view',compact('product','product_photo','head_categories','related_product','carts'));
+            return view('frontend.content.product_view',compact('product','product_photo','head_categories','related_product','carts','testemonials','hot_deals'));
 
     }
     public function hot(){

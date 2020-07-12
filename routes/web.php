@@ -60,6 +60,8 @@ Route::get('/checkout','CheckoutController@index')->name('checkout');
 //Route::post('/cupon','Frontend\CartController@cart')->name('cupon');
 
 Route::post('/order','OrderController@add_order')->name('order');
+Route::post('/search','Frontend\Index@search')->name('search');
+
 
 
 

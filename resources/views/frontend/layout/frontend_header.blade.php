@@ -69,7 +69,8 @@
                     <!-- /.contact-row -->
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area">
-                        <form>
+                        <form action="{{route('search')}}" method="post">
+                            @csrf
                             <div class="control-group">
 
                                 <ul class="categories-filter animate-dropdown">
@@ -85,12 +86,8 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <form action="{{url('/hi')}}"    me>
-
-                                <input class="search-field" placeholder="Search here..." />
-                                <button type="submit" class="search-button"></button>
-
-                                </form>
+                                    <input class="search-field" placeholder="Search here..." name="search"/>
+                                    <button type="submit" class="search-button"></button>
                             </div>
                         </form>
                     </div><!-- /.search-area -->

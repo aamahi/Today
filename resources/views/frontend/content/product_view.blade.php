@@ -5,224 +5,86 @@
             <div class='row single-product'>
                 <div class='col-md-3 sidebar'>
                     <div class="sidebar-module-container">
-                        <div class="home-banner outer-top-n">
-                            <img src="assets/images/banners/LHS-banner.jpgassets/images/banners/LHS-banner.jpg" alt="Image">
-                        </div>
-
-
-
+                        
                         <!-- ============================================== HOT DEALS ============================================== -->
                         <div class="sidebar-widget hot-deals wow fadeInUp outer-top-vs">
                             <h3 class="section-title">hot deals</h3>
-                            <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-xs">
+                            <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+                                @foreach($hot_deals as $hot)
+                                    <div class="item">
+                                        <div class="products">
+                                            <div class="hot-deal-wrapper">
+                                                <div class="image">
+                                                    <img src="{{asset('upload/product/'.$hot->photo)}}" alt="">
+                                                </div>
+                                                <div class="sale-offer-tag"><span>{{$hot->discount_price}}%<br>off</span></div>
+                                                <div class="timing-wrapper">
+                                                    <div class="box-wrapper">
+                                                        <div class="date box">
+                                                            <span class="key">120</span>
+                                                            <span class="value">Days</span>
+                                                        </div>
+                                                    </div>
 
-                                <div class="item">
-                                    <div class="products">
-                                        <div class="hot-deal-wrapper">
-                                            <div class="image">
-                                                <img src="assets/images/hot-deals/p5.jpg" alt="">
-                                            </div>
-                                            <div class="sale-offer-tag"><span>35%<br>off</span></div>
-                                            <div class="timing-wrapper">
-                                                <div class="box-wrapper">
-                                                    <div class="date box">
-                                                        <span class="key">120</span>
-                                                        <span class="value">Days</span>
+                                                    <div class="box-wrapper">
+                                                        <div class="hour box">
+                                                            <span class="key">20</span>
+                                                            <span class="value">HRS</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-wrapper">
+                                                        <div class="minutes box">
+                                                            <span class="key">36</span>
+                                                            <span class="value">MINS</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-wrapper hidden-md">
+                                                        <div class="seconds box">
+                                                            <span class="key">60</span>
+                                                            <span class="value">SEC</span>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            </div><!-- /.hot-deal-wrapper -->
 
-                                                <div class="box-wrapper">
-                                                    <div class="hour box">
-                                                        <span class="key">20</span>
-                                                        <span class="value">HRS</span>
-                                                    </div>
-                                                </div>
+                                            <div class="product-info text-left m-t-20">
+                                                <h3 class="name"><a href="{{url('/product/'.$hot->id)}}">{{$hot->product_name}}</a></h3>
+                                                <div class="rating rateit-small"></div>
 
-                                                <div class="box-wrapper">
-                                                    <div class="minutes box">
-                                                        <span class="key">36</span>
-                                                        <span class="value">MINS</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper hidden-md">
-                                                    <div class="seconds box">
-                                                        <span class="key">60</span>
-                                                        <span class="value">SEC</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.hot-deal-wrapper -->
-
-                                        <div class="product-info text-left m-t-20">
-                                            <h3 class="name"><a href="detail.html">{{$product->product_name}}</a></h3>
-                                            <div class="rating rateit-small"></div>
-
-                                            <div class="product-price">
-                                                <span class="price">
-                                                    {{$product->price}}
+                                                <div class="product-price">
+                                                    @if($hot->discount_price)
+                                                        <span class="price">
+                                                     ৳ {{$hot->price-(($hot->price/100)*$hot->discount_price)}}
                                                 </span>
+                                                        <span class="price-before-discount"> ৳ {{$hot->price}}</span>
+                                                    @else
+                                                        <span class="price">
+                                                     ৳ {{$hot->price}}
+                                                </span>
+                                                    @endif
+                                                </div><!-- /.product-price -->
 
-                                                <span class="price-before-discount">$800.00</span>
+                                            </div><!-- /.product-info -->
 
-                                            </div><!-- /.product-price -->
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
 
-                                        </div><!-- /.product-info -->
+                                                    <div class="add-cart-button btn-group">
+                                                        <button class="btn btn-primary icon addcart" data-id="{{$hot->id}}" data-toggle="dropdown" type="button">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                        <button class="btn btn-primary cart-btn  addcart" data-id="{{$hot->id}}" type="button">Add to cart</button>
 
-                                        <div class="cart clearfix animate-effect">
-                                            <div class="action">
+                                                    </div>
 
-                                                <div class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-
-                                                </div>
-
-                                            </div><!-- /.action -->
-                                        </div><!-- /.cart -->
+                                                </div><!-- /.action -->
+                                            </div><!-- /.cart -->
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="item">
-                                    <div class="products">
-                                        <div class="hot-deal-wrapper">
-                                            <div class="image">
-                                                <img src="assets/images/products/p6.jpg" alt="">
-                                            </div>
-                                            <div class="sale-offer-tag"><span>35%<br>off</span></div>
-                                            <div class="timing-wrapper">
-                                                <div class="box-wrapper">
-                                                    <div class="date box">
-                                                        <span class="key">120</span>
-                                                        <span class="value">Days</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper">
-                                                    <div class="hour box">
-                                                        <span class="key">20</span>
-                                                        <span class="value">HRS</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper">
-                                                    <div class="minutes box">
-                                                        <span class="key">36</span>
-                                                        <span class="value">MINS</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper hidden-md">
-                                                    <div class="seconds box">
-                                                        <span class="key">60</span>
-                                                        <span class="value">SEC</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.hot-deal-wrapper -->
-
-                                        <div class="product-info text-left m-t-20">
-                                            <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-                                            <div class="rating rateit-small"></div>
-
-                                            <div class="product-price">
-								<span class="price">
-									$600.00
-								</span>
-
-                                                <span class="price-before-discount">$800.00</span>
-
-                                            </div><!-- /.product-price -->
-
-                                        </div><!-- /.product-info -->
-
-                                        <div class="cart clearfix animate-effect">
-                                            <div class="action">
-
-                                                <div class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-
-                                                </div>
-
-                                            </div><!-- /.action -->
-                                        </div><!-- /.cart -->
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="products">
-                                        <div class="hot-deal-wrapper">
-                                            <div class="image">
-                                                <img src="assets/images/products/p7.jpg" alt="">
-                                            </div>
-                                            <div class="sale-offer-tag"><span>35%<br>off</span></div>
-                                            <div class="timing-wrapper">
-                                                <div class="box-wrapper">
-                                                    <div class="date box">
-                                                        <span class="key">120</span>
-                                                        <span class="value">Days</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper">
-                                                    <div class="hour box">
-                                                        <span class="key">20</span>
-                                                        <span class="value">HRS</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper">
-                                                    <div class="minutes box">
-                                                        <span class="key">36</span>
-                                                        <span class="value">MINS</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="box-wrapper hidden-md">
-                                                    <div class="seconds box">
-                                                        <span class="key">60</span>
-                                                        <span class="value">SEC</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.hot-deal-wrapper -->
-
-                                        <div class="product-info text-left m-t-20">
-                                            <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-                                            <div class="rating rateit-small"></div>
-
-                                            <div class="product-price">
-								<span class="price">
-									$600.00
-								</span>
-
-                                                <span class="price-before-discount">$800.00</span>
-
-                                            </div><!-- /.product-price -->
-
-                                        </div><!-- /.product-info -->
-
-                                        <div class="cart clearfix animate-effect">
-                                            <div class="action">
-
-                                                <div class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-
-                                                </div>
-
-                                            </div><!-- /.action -->
-                                        </div><!-- /.cart -->
-                                    </div>
-                                </div>
-
-
-                            </div><!-- /.sidebar-widget -->
+                                @endforeach
+                            </div>
                         </div>
                         <!-- ============================================== HOT DEALS: END ============================================== -->					<!-- ==============================================
 
@@ -245,25 +107,15 @@
                         <!-- ============================================== Testimonials============================================== -->
                         <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
                             <div id="advertisement" class="advertisement">
-                                <div class="item">
-                                    <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image"></div>
-                                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                    <div class="clients_author">John Doe	<span>Abc Company</span>	</div><!-- /.container-fluid -->
-                                </div><!-- /.item -->
+                                @foreach($testemonials as $testimonial)
+                                    <div class="item">
+                                        <div class="avatar"><img src="{{asset('upload/testimonial/'.$testimonial->photo)}}" alt="Image"></div>
+                                        <div class="testimonials"><em>"</em> {{$testimonial->review}}<em>"</em></div>
+                                        <div class="clients_author">{{$testimonial->name}}	<span>{{$testimonial->company_name}}</span>	</div><!-- /.container-fluid -->
+                                    </div><!-- /.item -->
+                                @endforeach
 
-                                <div class="item">
-                                    <div class="avatar"><img src="assets/images/testimonials/member3.png" alt="Image"></div>
-                                    <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                    <div class="clients_author">Stephen Doe	<span>Xperia Designs</span>	</div>
-                                </div><!-- /.item -->
-
-                                <div class="item">
-                                    <div class="avatar"><img src="assets/images/testimonials/member2.png" alt="Image"></div>
-                                    <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                    <div class="clients_author">Saraha Smith	<span>Datsun &amp; Co</span>	</div><!-- /.container-fluid -->
-                                </div><!-- /.item -->
-
-                            </div><!-- /.owl-carousel -->
+                            </div>
                         </div>
 
                         <!-- ============================================== Testimonials: END ============================================== -->
