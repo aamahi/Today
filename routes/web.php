@@ -146,5 +146,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/remove/hot/{id}','Admin\HotController@remove_hot')->name('remove_hot');
     Route::get('/get_products/{id}','Admin\HotController@product');
 
+
+    //BLog
+    Route::get('/add/blog','BlogController@addBlog')->name('admin.addBlog');
+    Route::post('/add/blog','BlogController@addBlogPro');
+
 });
 

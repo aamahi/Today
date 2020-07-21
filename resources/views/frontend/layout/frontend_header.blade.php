@@ -41,8 +41,7 @@
                             <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">English</a></li>
-                                <li><a href="#">French</a></li>
-                                <li><a href="#">German</a></li>
+                                <li><a href="#">Bangla</a></li>
                             </ul>
                         </li>
                     </ul><!-- /.list-unstyled -->

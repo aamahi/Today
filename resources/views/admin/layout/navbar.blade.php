@@ -47,7 +47,12 @@
 
                 </ul>
             </li>
-
+            <li>
+                <a class="@yield('blog')" href="{{route('admin.addBlog')}}">
+                    <i class="fa fa-pencil"></i>
+                    <span>Blog</span>
+                </a>
+            </li>
 
             <li class="sub-menu">
                 <a  class="@yield('brand')" href="javascript:;" >
