@@ -15,12 +15,11 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedSmallInteger('user_id');
-            $table->string('titile');
+            $table->string('title');
             $table->longText('details');
             $table->string('photo');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

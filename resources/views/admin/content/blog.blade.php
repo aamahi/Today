@@ -22,7 +22,7 @@
                                     </div>
                                 @endforeach
                             @endif
-                            <form method="post" action="{{route('admin.addBlog')}}" enctype="multipart/form-data">
+                            <form method="post" action="{{route('admin.blog')}}" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group row">
@@ -52,6 +52,42 @@
                                 </div>
                             </form>
 
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="card">
+                        <header class="card-header">
+                            Blog
+                        </header>
+                        <div class="card-body">
+                            <div class="adv-table">
+                                <table  class="table table-bordered table-striped" id="example">
+                                    <thead>
+                                    <tr>
+                                        <th> Photo</th>
+                                        <th>Title</th>
+                                        <th>Create At</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($blogs as $blog)
+                                        <tr>
+                                            <td><img src="{{asset('upload/blog/'.$blog->photo)}}" width="65"></td>
+                                            <td>{{$blog->title}}</td>
+                                            <td>{{$blog->created_at->diffForHumans()}}</td>
+                                            <td>
+                                                <a href="" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                                <a href="" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>
+                                                <a href="{{route('blogDelete',$blog->id)}}" class="btn btn-sm btn-danger delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            </div>
                         </div>
                     </section>
                 </div>

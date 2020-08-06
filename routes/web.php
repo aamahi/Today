@@ -148,8 +148,10 @@ Route::prefix('admin')->group(function () {
 
 
     //BLog
-    Route::get('/add/blog','BlogController@addBlog')->name('admin.addBlog');
-    Route::post('/add/blog','BlogController@addBlogPro');
+    Route::get('/blog','BlogController@addBlog')->name('admin.blog');
+    Route::post('/blog','BlogController@addBlogPro');
+    Route::get('/blogDelete/{id}','BlogController@blogDelete')->name('blogDelete');
+    Route::get('/read/blog/{id}','BlogController@readBlog')->name('readBlog');
 
 });
 

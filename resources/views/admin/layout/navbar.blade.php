@@ -48,7 +48,7 @@
                 </ul>
             </li>
             <li>
-                <a class="@yield('blog')" href="{{route('admin.addBlog')}}">
+                <a class="@yield('blog')" href="{{route('admin.blog')}}">
                     <i class="fa fa-pencil"></i>
                     <span>Blog</span>
                 </a>
@@ -80,17 +80,6 @@
                     <i class="fa fa-gift"></i>
                     <span>Cupon</span>
                 </a>
-            </li>
-            <li class="sub-menu">
-                <a  class="@yield('hot')" href="javascript:;" >
-                    <i class="fa fa-pencil"></i>
-                    <span>Blog</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="{{route('admin.add_hot')}}">Add Blog</a></li>
-                    <li><a  href="{{route('admin.hot')}}">Hot deal product </a></li>
-
-                </ul>
             </li>
             <li>
                 <a class="@yield('testimonial')" href="{{route('admin.testimonial')}}">
