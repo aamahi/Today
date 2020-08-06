@@ -5,7 +5,7 @@
             <div class='row single-product'>
                 <div class='col-md-3 sidebar'>
                     <div class="sidebar-module-container">
-                        
+
                         <!-- ============================================== HOT DEALS ============================================== -->
                         <div class="sidebar-widget hot-deals wow fadeInUp outer-top-vs">
                             <h3 class="section-title">hot deals</h3>
@@ -224,8 +224,8 @@
                                             <div class="col-sm-6">
                                                 <div class="price-box">
                                                     @if($product->discount_price)
-                                                        <span class="price">৳ {{$product->price}}</span>
-                                                        <span class="price-strike">৳ {{$product->price-(($product->price/100)*$product->discount_price)}}</span>
+                                                        <span class="price">৳ {{$product->price-(($product->price/100)*$product->discount_price)}}</span>
+                                                        <span class="price-strike">৳ {{$product->price}}</span>
                                                     @else
                                                         <span class="price">৳ {{$product->price}}</span>
                                                     @endif

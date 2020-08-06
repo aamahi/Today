@@ -49,14 +49,14 @@
 </script>
 <script>
     $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
 
         $('.addwish').on('click',function (e) {
-            e.preventDefault();
+            // e.preventDefault();
             var id = $(this).data('id');
             if(id){
                 $.ajax({
@@ -77,11 +77,11 @@
 </script>
 <script>
     $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
 
         $('.removewisht').on('click',function () {
             // e.preventDefault();
@@ -105,14 +105,13 @@
 </script>
 <script>
     $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-
-        $('.addcart').on('click',function (e) {
-            e.preventDefault();
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        $('.addcart').on('click',function () {
+            // e.preventDefault();
             var id = $(this).data('id');
             if(id){
                 $.ajax({

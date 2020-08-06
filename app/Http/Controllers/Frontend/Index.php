@@ -24,10 +24,10 @@ class Index extends Controller
             $brands = Brand::select('brand_logo')->orderBy('id','DESC')->get();
             $banners = Banner::select('web_banner')->orderBy('id','DESC')->get();
             $products = Product::select('id','product_name','photo','price','discount_price','quantity','hot_deal','special_offer','today_offer')->orderBy('id','DESC')->get();
-            $special_offers = Product::select('id','product_name','photo','price','discount_price','quantity','hot_deal','special_offer','today_offer')->orderBy('id','DESC')->where('special_offer',1)->get();
+//            $special_offers = Product::select('id','product_name','photo','price','discount_price','quantity','hot_deal','special_offer','today_offer')->orderBy('id','DESC')->where('special_offer',1)->get();
             $today_offers= Product::select('id','product_name','photo','price','discount_price','quantity','hot_deal','special_offer','today_offer')->orderBy('id','DESC')->where('today_offer',1)->get();
             $hot_deals = Product::select('id','product_name','photo','price','discount_price')->orderBy('id','DESC')->where('hot_deal',1)->get();
-            return view("frontend.content.home",compact('brands','head_categories','banners','blogs','products','special_offers','today_offers','carts','testemonials','hot_deals'));
+            return view("frontend.content.home",compact('brands','head_categories','banners','blogs','products','today_offers','carts','testemonials','hot_deals'));
     }
 
     public function search(Request $request){
