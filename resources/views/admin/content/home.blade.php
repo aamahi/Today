@@ -39,8 +39,8 @@
                             <i class="fa fa-shopping-cart"></i>
                         </div>
                         <div class="value">
-                            <h1 class=" count3">
-                                0
+                            <h1>
+                                {{\App\Model\Order::where('status','0')->count()}}
                             </h1>
                             <p>New Order</p>
                         </div>
@@ -52,10 +52,10 @@
                             <i class="fa fa-bar-chart-o"></i>
                         </div>
                         <div class="value">
-                            <h1 class=" count4">
-                                0
+                            <h1>
+                                {{\App\Model\Product::all()->count()}}
                             </h1>
-                            <p>Total Profit</p>
+                            <p>Total Product</p>
                         </div>
                     </section>
                 </div>
@@ -115,15 +115,7 @@
                     <section class="card">
                         <div class="card-body progress-card">
                             <div class="task-progress">
-                                <h1>Work Progress</h1>
-                                <p>Anjelina Joli</p>
-                            </div>
-                            <div class="task-option">
-                                <select class="styled">
-                                    <option>Anjelina Joli</option>
-                                    <option>Tom Crouse</option>
-                                    <option>Jhon Due</option>
-                                </select>
+                                <h1>New Order</h1>
                             </div>
                         </div>
                         <table class="table table-hover personal-task">

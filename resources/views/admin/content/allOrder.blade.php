@@ -22,7 +22,7 @@
                                         <th>Payment</th>
                                         <th>Sub Total</th>
                                         <th>Total</th>
-{{--                                        <th>Action</th>--}}
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -35,11 +35,10 @@
                                             <td>{{$order->payment}}</td>
                                             <td>{{$order->sub_total}} taka</td>
                                             <td>{{$order->total}} taka</td>
-{{--                                            <td>--}}
-{{--                                                <a href="{{route('view_product',$order->id)}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>--}}
-{{--                                                <a href="{{route('edit_product',$order->id)}}" class="btn btn-sm btn-info"><i class="fa fa-edit"></i></a>--}}
-{{--                                                <a href="{{route('product_soft_delete',$order->id)}}" class="btn btn-sm btn-danger delete"><i class="fa fa-trash-o"></i></a>--}}
-{{--                                            </td>--}}
+                                            <td>
+                                                <a href="{{route('viewOrder',$order->id)}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i></a>
+                                                <a href="{{route('OrderDelete',$order->id)}}" class="btn btn-sm btn-danger delete"><i class="fa fa-trash-o"></i></a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </table>
