@@ -49,7 +49,7 @@ class OrderController extends Controller
                 'message' => "Thank you ! Order Done",
                 'alert-type' => 'info'
             );
-//            return redirect()->route('frontend_home')->with($notification);
+            return redirect()->route('frontend_home')->with($notification);
         }else{
             $total = $request->sub_total;
             return view('stripe',compact('total'));

@@ -29,7 +29,7 @@
                     </span>
                                 </div>
                                 <div class="media-body">
-                                    <p>+(888) 123-4567<br>+(888) 456-7890</p>
+                                    <p>+(888) 01751989173<br>+(888) 01706225615</p>
                                 </div>
                             </li>
 
@@ -40,7 +40,7 @@
                     </span>
                                 </div>
                                 <div class="media-body">
-                                    <span><a href="#">flipmart@themesground.com</a></span>
+                                    <span><a href="#">hello@abdullahmahi,com</a></span>
                                 </div>
                             </li>
 

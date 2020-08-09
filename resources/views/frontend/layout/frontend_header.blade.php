@@ -28,23 +28,23 @@
                 </div><!-- /.cnt-account -->
 
                 <div class="cnt-block">
-                    <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-                        <li class="dropdown dropdown-small">
-                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">Bangla</a></li>
-                            </ul>
-                        </li>
-                    </ul><!-- /.list-unstyled -->
+{{--                    <ul class="list-unstyled list-inline">--}}
+{{--                            <li class="dropdown dropdown-small">--}}
+{{--                                <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>--}}
+{{--                                <ul class="dropdown-menu">--}}
+{{--                                    <li><a href="#">USD</a></li>--}}
+{{--                                    <li><a href="#">INR</a></li>--}}
+{{--                                    <li><a href="#">GBP</a></li>--}}
+{{--                                </ul>--}}
+{{--                            </li>--}}
+{{--                        <li class="dropdown dropdown-small">--}}
+{{--                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>--}}
+{{--                            <ul class="dropdown-menu">--}}
+{{--                                <li><a href="#">English</a></li>--}}
+{{--                                <li><a href="#">Bangla</a></li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+{{--                    </ul><!-- /.list-unstyled -->--}}
                 </div><!-- /.cnt-cart -->
                 <div class="clearfix"></div>
             </div><!-- /.header-top-inner -->
@@ -244,45 +244,6 @@
 
                                 </li>
                                 @endforeach
-
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Pages</a>
-                                    <ul class="dropdown-menu pages">
-                                        <li>
-                                            <div class="yamm-content">
-                                                <div class="row">
-
-                                                    <div class="col-xs-12 col-menu">
-                                                        <ul class="links">
-                                                            <li><a href="{{url('/')}}">Home</a></li>
-                                                            <li><a href="category.html">Category</a></li>
-                                                            <li><a href="detail.html">Detail</a></li>
-                                                            <li><a href="shopping-cart.html">Shopping Cart Summary</a></li>
-                                                            <li><a href="checkout.html">Checkout</a></li>
-                                                            <li><a href="blog.html">Blog</a></li>
-                                                            <li><a href="blog-details.html">Blog Detail</a></li>
-                                                            <li><a href="contact.html">Contact</a></li>
-                                                            <li><a href="sign-in.html">Sign In</a></li>
-                                                            <li><a href="{{route('wishlist')}}">Wishlist</a></li>
-                                                            <li><a href="terms-conditions.html">Terms and Condition</a></li>
-                                                            <li><a href="track-orders.html">Track Orders</a></li>
-                                                            <li><a href="product-comparison.html">Product-Comparison</a></li>
-                                                            <li><a href="faq.html">FAQ</a></li>
-                                                            <li><a href="404.html">404</a></li>
-
-                                                        </ul>
-                                                    </div>
-
-
-
-                                                </div>
-                                            </div>
-                                        </li>
-
-
-
-                                    </ul>
-                                </li>
                                 <li class="dropdown  navbar-right special-menu">
                                     <a href="{{route('today')}}">Hot Deal</a>
                                 </li>

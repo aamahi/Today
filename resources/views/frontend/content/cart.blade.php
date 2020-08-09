@@ -96,7 +96,7 @@
                             <tr>
                                 <th>
                                     <span class="estimate-title">Discount Code</span>
-                                    <p>Enter your coupon code if you have one..</p>
+                                    <p>Use Cupon <b class="text-danger">(HELLO-10)</b> And get 10% discount</p>
                                 </th>
                             </tr>
                             </thead>

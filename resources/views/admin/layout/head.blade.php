@@ -7,7 +7,7 @@
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="{{asset('admin/img/favicon.html')}}">
-    <title>Today</title>
+    <title>Mahi</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{asset('admin/css/bootstrap.min.css')}}" rel="stylesheet">

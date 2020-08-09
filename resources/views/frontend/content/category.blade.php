@@ -5,9 +5,87 @@
             <div class='row'>
                 <div class='col-md-3 sidebar'>
                     <!-- ================================== TOP NAVIGATION ================================== -->
-                            @include('frontend.layout.frontend_sidenav')
-                    <!-- ================================== TOP NAVIGATION : END ================================== -->	            <div class="sidebar-module-container">
+                @include('frontend.layout.frontend_sidenav')
+                <!-- ================================== TOP NAVIGATION : END ================================== -->	            <div class="sidebar-module-container">
+                        <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
+                            <h3 class="section-title">hot deals</h3>
+                            <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+                                @foreach($hot_deals = \App\Model\Product::select('id','product_name','photo','price','discount_price')->orderBy('id','DESC')->where('hot_deal',1)->get() as $hot)
+                                    <div class="item">
+                                        <div class="products">
+                                            <div class="hot-deal-wrapper">
+                                                <div class="image">
+                                                    <img src="{{asset('upload/product/'.$hot->photo)}}" alt="">
+                                                </div>
+                                                <div class="sale-offer-tag"><span>{{$hot->discount_price}}%<br>off</span></div>
+                                                <div class="timing-wrapper">
+                                                    <div class="box-wrapper">
+                                                        <div class="date box">
+                                                            <span class="key">120</span>
+                                                            <span class="value">Days</span>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="box-wrapper">
+                                                        <div class="hour box">
+                                                            <span class="key">20</span>
+                                                            <span class="value">HRS</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-wrapper">
+                                                        <div class="minutes box">
+                                                            <span class="key">36</span>
+                                                            <span class="value">MINS</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="box-wrapper hidden-md">
+                                                        <div class="seconds box">
+                                                            <span class="key">60</span>
+                                                            <span class="value">SEC</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.hot-deal-wrapper -->
+
+                                            <div class="product-info text-left m-t-20">
+                                                <h3 class="name"><a href="{{url('/product/'.$hot->id)}}">{{$hot->product_name}}</a></h3>
+                                                <div class="rating rateit-small"></div>
+
+                                                <div class="product-price">
+                                                    @if($hot->discount_price)
+                                                        <span class="price">
+                                                     ৳ {{$hot->price-(($hot->price/100)*$hot->discount_price)}}
+                                                </span>
+                                                        <span class="price-before-discount"> ৳ {{$hot->price}}</span>
+                                                    @else
+                                                        <span class="price">
+                                                     ৳ {{$hot->price}}
+                                                </span>
+                                                    @endif
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
+
+                                                    <div class="add-cart-button btn-group">
+                                                        <button class="btn btn-primary icon addcart" data-id="{{$hot->id}}" data-toggle="dropdown" type="button">
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                        </button>
+                                                        <button class="btn btn-primary cart-btn  addcart" data-id="{{$hot->id}}" type="button">Add to cart</button>
+
+                                                    </div>
+
+                                                </div><!-- /.action -->
+                                            </div><!-- /.cart -->
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div><!-- /.sidebar-widget -->
+                        </div>
                         <div class="sidebar-filter">
                             <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
                             <div class="sidebar-widget wow fadeInUp">
@@ -19,129 +97,35 @@
                                     <div class="accordion">
                                         @foreach($head_categories as $category)
                                             <div class="accordion-group">
-                                            <div class="accordion-heading">
-                                                <a href="#collapseOne" data-toggle="collapse" class="accordion-toggle collapsed">
-                                                    {{$category->head_category_name}}
-                                                </a>
-                                            </div><!-- /.accordion-heading -->
-                                            <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
-                                                <div class="accordion-inner">
-                                                    <ul>
-                                                        @foreach($category->sub_categories as $sub_category)
-                                                            <li><a href="{{url('/subcategory/'.$sub_category->id)}}">{{$sub_category->sub_category_name}}</a></li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div><!-- /.accordion-inner -->
-                                            </div><!-- /.accordion-body -->
-                                        </div><!-- /.accordion-group -->
+                                                <div class="accordion-heading">
+                                                    <a href="#collapseOne" data-toggle="collapse" class="accordion-toggle collapsed">
+                                                        {{$category->head_category_name}}
+                                                    </a>
+                                                </div><!-- /.accordion-heading -->
+                                                <div class="accordion-body collapse" id="collapseOne" style="height: 0px;">
+                                                    <div class="accordion-inner">
+                                                        <ul>
+                                                            @foreach($category->sub_categories as $sub_category)
+                                                                <li><a href="{{url('subcategory',$sub_category->id)}}">{{$sub_category->sub_category_name}}</a></li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div><!-- /.accordion-inner -->
+                                                </div><!-- /.accordion-body -->
+                                            </div><!-- /.accordion-group -->
                                         @endforeach
                                     </div><!-- /.accordion -->
                                 </div><!-- /.sidebar-widget-body -->
                             </div><!-- /.sidebar-widget -->
                             <!-- ============================================== SIDEBAR CATEGORY : END ============================================== -->
-
-                            <!-- ============================================== PRICE SILDER============================================== -->
-                            <div class="sidebar-widget wow fadeInUp">
-                                <div class="widget-header">
-                                    <h4 class="widget-title">Price Slider</h4>
-                                </div>
-                                <div class="sidebar-widget-body m-t-10">
-                                    <div class="price-range-holder">
-      	    <span class="min-max">
-                 <span class="pull-left">$200.00</span>
-                 <span class="pull-right">$800.00</span>
-            </span>
-                                        <input type="text" id="amount" style="border:0; color:#666666; font-weight:bold;text-align:center;">
-
-                                        <input type="text" class="price-slider" value="" >
-
-                                    </div><!-- /.price-range-holder -->
-                                    <a href="#" class="lnk btn btn-primary">Show Now</a>
-                                </div><!-- /.sidebar-widget-body -->
-                            </div><!-- /.sidebar-widget -->
-                            <!-- ============================================== PRICE SILDER : END ============================================== -->
-                            <!-- ============================================== MANUFACTURES============================================== -->
-                            <div class="sidebar-widget wow fadeInUp">
-                                <div class="widget-header">
-                                    <h4 class="widget-title">Manufactures</h4>
-                                </div>
-                                <div class="sidebar-widget-body">
-                                    <ul class="list">
-                                        <li><a href="#">Forever 18</a></li>
-                                        <li><a href="#">Nike</a></li>
-                                        <li><a href="#">Dolce & Gabbana</a></li>
-                                        <li><a href="#">Alluare</a></li>
-                                        <li><a href="#">Chanel</a></li>
-                                        <li><a href="#">Other Brand</a></li>
-                                    </ul>
-                                    <!--<a href="#" class="lnk btn btn-primary">Show Now</a>-->
-                                </div><!-- /.sidebar-widget-body -->
-                            </div><!-- /.sidebar-widget -->
-                            <!-- ============================================== MANUFACTURES: END ============================================== -->
-                            <!-- ============================================== COLOR============================================== -->
-                            <div class="sidebar-widget wow fadeInUp">
-                                <div class="widget-header">
-                                    <h4 class="widget-title">Colors</h4>
-                                </div>
-                                <div class="sidebar-widget-body">
-                                    <ul class="list">
-                                        <li><a href="#">Red</a></li>
-                                        <li><a href="#">Blue</a></li>
-                                        <li><a href="#">Yellow</a></li>
-                                        <li><a href="#">Pink</a></li>
-                                        <li><a href="#">Brown</a></li>
-                                        <li><a href="#">Teal</a></li>
-                                    </ul>
-                                </div><!-- /.sidebar-widget-body -->
-                            </div><!-- /.sidebar-widget -->
-                            <!-- ============================================== COLOR: END ============================================== -->
-                            <!-- ============================================== COMPARE============================================== -->
-                            <div class="sidebar-widget wow fadeInUp outer-top-vs">
-                                <h3 class="section-title">Compare products</h3>
-                                <div class="sidebar-widget-body">
-                                    <div class="compare-report">
-                                        <p>You have no <span>item(s)</span> to compare</p>
-                                    </div><!-- /.compare-report -->
-                                </div><!-- /.sidebar-widget-body -->
-                            </div><!-- /.sidebar-widget -->
-                            <!-- ============================================== COMPARE: END ============================================== -->
-                            <!-- ============================================== PRODUCT TAGS ============================================== -->
-                            <div class="sidebar-widget product-tag wow fadeInUp outer-top-vs">
-                                <h3 class="section-title">Product tags</h3>
-                                <div class="sidebar-widget-body outer-top-xs">
-                                    <div class="tag-list">
-                                        <a class="item" title="Phone" href="category.html">Phone</a>
-                                        <a class="item active" title="Vest" href="category.html">Vest</a>
-                                        <a class="item" title="Smartphone" href="category.html">Smartphone</a>
-                                        <a class="item" title="Furniture" href="category.html">Furniture</a>
-                                        <a class="item" title="T-shirt" href="category.html">T-shirt</a>
-                                        <a class="item" title="Sweatpants" href="category.html">Sweatpants</a>
-                                        <a class="item" title="Sneaker" href="category.html">Sneaker</a>
-                                        <a class="item" title="Toys" href="category.html">Toys</a>
-                                        <a class="item" title="Rose" href="category.html">Rose</a>
-                                    </div><!-- /.tag-list -->
-                                </div><!-- /.sidebar-widget-body -->
-                            </div><!-- /.sidebar-widget -->
-                            <!-- ============================================== PRODUCT TAGS : END ============================================== -->		            	<!-- <!-- ============================================== Testimonials============================================== -->
                             <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
                                 <div id="advertisement" class="advertisement">
-                                    <div class="item">
-                                        <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image"></div>
-                                        <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                        <div class="clients_author">John Doe	<span>Abc Company</span>	</div><!-- /.container-fluid -->
-                                    </div><!-- /.item -->
-
-                                    <div class="item">
-                                        <div class="avatar"><img src="assets/images/testimonials/member3.png" alt="Image"></div>
-                                        <div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                        <div class="clients_author">Stephen Doe	<span>Xperia Designs</span>	</div>
-                                    </div><!-- /.item -->
-
-                                    <div class="item">
-                                        <div class="avatar"><img src="assets/images/testimonials/member2.png" alt="Image"></div>
-                                        <div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer.<em>"</em></div>
-                                        <div class="clients_author">Saraha Smith	<span>Datsun &amp; Co</span>	</div><!-- /.container-fluid -->
-                                    </div><!-- /.item -->
+                                    @foreach(\App\Model\Testemonial::all() as $testimonial)
+                                        <div class="item">
+                                            <div class="avatar"><img src="{{asset('upload/testimonial/'.$testimonial->photo)}}" alt="Image"></div>
+                                            <div class="testimonials"><em>"</em> {{$testimonial->review}}<em>"</em></div>
+                                            <div class="clients_author">{{$testimonial->name}}	<span>{{$testimonial->company_name}}</span>	</div><!-- /.container-fluid -->
+                                        </div><!-- /.item -->
+                                    @endforeach
 
                                 </div><!-- /.owl-carousel -->
                             </div>
@@ -149,7 +133,7 @@
                             <!-- ============================================== Testimonials: END ============================================== -->
 
                             <div class="home-banner">
-                                <img src="assets/images/banners/LHS-banner.jpg" alt="Image">
+                                <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image">
                             </div>
 
                         </div><!-- /.sidebar-filter -->
@@ -256,10 +240,10 @@
                                                         <div class="action">
                                                             <ul class="list-unstyled">
                                                                 <li class="add-cart-button btn-group">
-                                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                                    <button class="btn btn-primary icon addcart" data-id="{{$product->id}}" data-toggle="dropdown" type="button">
                                                                         <i class="fa fa-shopping-cart"></i>
                                                                     </button>
-                                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                    <button class="btn btn-primary cart-btn cart" data-id="{{$product->id}}" type="button">Add to cart</button>
 
                                                                 </li>
 
@@ -270,7 +254,7 @@
                                                                 </li>
 
                                                                 <li class="lnk">
-                                                                    <a class="add-to-cart" href="detail.html" title="Compare">
+                                                                    <a class="add-to-cart" href="" title="Compare">
                                                                         <i class="fa fa-signal"></i>
                                                                     </a>
                                                                 </li>
@@ -329,10 +313,10 @@
                                                                 <div class="action">
                                                                     <ul class="list-unstyled">
                                                                         <li class="add-cart-button btn-group">
-                                                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                                            <button class="btn btn-primary icon addcart" data-id="{{$product->id}}" data-toggle="dropdown" type="button">
                                                                                 <i class="fa fa-shopping-cart"></i>
                                                                             </button>
-                                                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                                            <button class="btn btn-primary cart-btna ddcart" data-id="{{$product->id}}" type="button">Add to cart</button>
 
                                                                         </li>
 
@@ -343,7 +327,7 @@
                                                                         </li>
 
                                                                         <li class="lnk">
-                                                                            <a class="add-to-cart" href="detail.html" title="Compare">
+                                                                            <a class="add-to-cart" href="" title="Compare">
                                                                                 <i class="fa fa-signal"></i>
                                                                             </a>
                                                                         </li>

@@ -30,8 +30,8 @@
                                     <td class="hidden-phone">{{$testemonial->company_name}}</td>
 
                                     <td>
-                                        <a href="{{route('banner.update',$testemonial->id)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                                        <a href="{{route('banner.soft_delete',$testemonial->id)}}" class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o "></i> Delete </a>
+                                        <a href="" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a href="" class="btn btn-danger btn-sm delete"><i class="fa fa-trash-o "></i> Delete </a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -179,9 +179,7 @@
 {{--                                </div><!-- /.pagination-container -->		</div><!-- /.col -->--}}
                         </div><!-- /.row -->
                     </div>
-
-
-                    <div class="search-result-container ">
+                <div class="search-result-container ">
 
                         <div id="myTabContent" class="tab-content category-list">
 
@@ -374,13 +372,9 @@
 
 
                 </div><!-- /.col -->
-            </div><!-- /.row -->
-            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-
-            <!-- /.logo-slider -->
-            <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
-
-    </div>
+            </div>
+            </div>
+        </div>
     @include('frontend.layout.frontend_brands')
 
 @endsection
